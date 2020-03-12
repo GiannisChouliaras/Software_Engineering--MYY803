@@ -2,7 +2,7 @@ package commands;
 
 import java.awt.event.ActionEvent;
 
-public interface ActionListener {
+public interface ActionListener extends java.awt.event.ActionListener {
 
     /**
      * @param actionEvent

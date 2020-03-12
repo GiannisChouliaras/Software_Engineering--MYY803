@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="373a9e24-b4a0-4cec-a446-a706ffdf3a40" name="Default Changelist" comment="" />
+    <list default="true" id="373a9e24-b4a0-4cec-a446-a706ffdf3a40" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/commands/ActionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/commands/ActionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/commands/CommandsFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/commands/CommandsFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/commands/DocumentToSpeech.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/commands/DocumentToSpeech.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/commands/EditDocument.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/commands/EditDocument.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/commands/LineToSpeech.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/commands/LineToSpeech.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/commands/NewDocument.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/commands/NewDocument.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/commands/OpenDocument.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/commands/OpenDocument.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/commands/ReplayCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/commands/ReplayCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/commands/ReplayManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/commands/ReplayManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/commands/TuneAudio.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/commands/TuneAudio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/commands/TuneEncoding.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/commands/TuneEncoding.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/encodingstrategies/AtBashEncoding.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/encodingstrategies/AtBashEncoding.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/encodingstrategies/EncodingStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/encodingstrategies/EncodingStrategy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/encodingstrategies/Rot13Encoding.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/encodingstrategies/Rot13Encoding.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/encodingstrategies/StrategiesFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/encodingstrategies/StrategiesFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/encodingstrategies/TemplateEncoding.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/encodingstrategies/TemplateEncoding.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/Document.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/Document.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/Line.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/Line.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/text2speechapis/FakeTextToSpeechAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/text2speechapis/FakeTextToSpeechAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/text2speechapis/FreeTTSAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/text2speechapis/FreeTTSAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/text2speechapis/TextToSpeechAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/text2speechapis/TextToSpeechAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/text2speechapis/TextToSpeechAPIFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/text2speechapis/TextToSpeechAPIFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Document.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Line.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/text2speechapis/FreeTTSAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text2speechapis/FreeTTSAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/text2speechapis/TextToSpeechAPIFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text2speechapis/TextToSpeechAPIFactory.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -11,19 +40,111 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="TextToSpeechEditor" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/text2speechapis/FreeTTSAdapter.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Document.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="1326">
+              <caret line="120" selection-start-line="120" selection-end-line="120" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#Document#0;class#Document#0" />
+                <element signature="method#playContents#0;class#Document#0" />
+                <element signature="method#playReverseContents#0;class#Document#0" />
+                <element signature="method#playEncodedContents#0;class#Document#0" />
+                <element signature="method#playLine#0;class#Document#0" />
+                <element signature="method#playReversedLine#0;class#Document#0" />
+                <element signature="method#playEncodedLine#0;class#Document#0" />
+                <element signature="method#tuneEncodingStrategy#0;class#Document#0" />
+                <element signature="method#setListFromText#0;class#Document#0" />
+                <element signature="method#setModifiedDate#0;class#Document#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Line.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#Line#0;class#Line#0" />
+                <element signature="method#playReverseLine#0;class#Line#0" />
+                <element signature="method#playEncodedLine#0;class#Line#0" />
+                <element signature="method#tuneEncodingStrategy#0;class#Line#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/Text2SpeechEditorView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/text2speechapis/TextToSpeechAPI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+              <folding>
+                <element signature="docComment;method#setVolume#0;class#TextToSpeechAPI#0" />
+                <element signature="docComment;method#setPitch#0;class#TextToSpeechAPI#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/text2speechapis/FreeTTSAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="816">
+              <caret line="60" column="36" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#setVolume#0;class#FreeTTSAdapter#0" />
+                <element signature="method#setPitch#0;class#FreeTTSAdapter#0" />
+                <element signature="method#setRate#0;class#FreeTTSAdapter#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/text2speechapis/FakeTextToSpeechAPI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/encodingstrategies/AtBashEncoding.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -37,6 +158,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -58,21 +182,23 @@
         <option value="$PROJECT_DIR$/src/encodingstrategies/Rot13Encoding.java" />
         <option value="$PROJECT_DIR$/src/encodingstrategies/EncodingStrategy.java" />
         <option value="$PROJECT_DIR$/src/text2speechapis/TextToSpeechAPI.java" />
+        <option value="$PROJECT_DIR$/src/text2speechapis/FakeTextToSpeechAPI.java" />
+        <option value="$PROJECT_DIR$/src/view/Text2SpeechEditorView.java" />
         <option value="$PROJECT_DIR$/src/text2speechapis/TextToSpeechAPIFactory.java" />
         <option value="$PROJECT_DIR$/src/text2speechapis/FreeTTSAdapter.java" />
-        <option value="$PROJECT_DIR$/src/text2speechapis/FakeTextToSpeechAPI.java" />
         <option value="$PROJECT_DIR$/src/model/Document.java" />
         <option value="$PROJECT_DIR$/src/model/Line.java" />
-        <option value="$PROJECT_DIR$/src/view/Text2SpeechEditorView.java" />
+        <option value="$PROJECT_DIR$/src/model/Main.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="546" />
-    <option name="y" value="23" />
-    <option name="width" value="1550" />
-    <option name="height" value="1233" />
+    <option name="x" value="532" />
+    <option name="y" value="45" />
+    <option name="width" value="1447" />
+    <option name="height" value="1318" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -94,14 +220,32 @@
               <item name="TextToSpeechEditor" type="b2602c69:ProjectViewProjectNode" />
               <item name="TextToSpeechEditor" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TextToSpeechEditor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TextToSpeechEditor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TextToSpeechEditor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TextToSpeechEditor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="text2speechapis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TextToSpeechEditor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TextToSpeechEditor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -113,6 +257,8 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -130,6 +276,26 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="model.Main" />
+      <module name="TextToSpeechEditor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -144,35 +310,35 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="546" y="23" width="1550" height="1233" extended-state="0" />
+    <frame x="532" y="45" width="1447" height="1318" extended-state="0" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Learn" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15848807" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49878347" visible="true" weight="0.1935943" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Learn" order="6" />
+      <window_info id="Favorites" order="7" sideWeight="0.50121653" side_tool="true" weight="0.19074734" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.13866232" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
   </component>
   <component name="editorHistoryManager">
@@ -180,34 +346,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commands/TuneAudio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commands/ReplayManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commands/ReplayCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/encodingstrategies/StrategiesFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -260,17 +398,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/encodingstrategies/TemplateEncoding.java">
+    <entry file="file://$PROJECT_DIR$/src/text2speechapis/TextToSpeechAPIFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/encodingstrategies/AtBashEncoding.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+        <state relative-caret-position="204">
+          <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -283,36 +414,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/encodingstrategies/EncodingStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="67" lean-forward="true" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/text2speechapis/TextToSpeechAPI.java">
+    <entry file="file://$PROJECT_DIR$/src/encodingstrategies/TemplateEncoding.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+        <state relative-caret-position="510">
+          <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/text2speechapis/TextToSpeechAPIFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/encodingstrategies/StrategiesFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/text2speechapis/FakeTextToSpeechAPI.java">
+    <entry file="file://$PROJECT_DIR$/src/commands/ReplayCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="24" selection-start-column="24" selection-end-column="24" />
+        <state relative-caret-position="170">
+          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commands/ReplayManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commands/TuneAudio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Document.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
+        <state relative-caret-position="1326">
+          <caret line="120" selection-start-line="120" selection-end-line="120" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Document#0;class#Document#0" />
@@ -323,35 +468,75 @@
             <element signature="method#playReversedLine#0;class#Document#0" />
             <element signature="method#playEncodedLine#0;class#Document#0" />
             <element signature="method#tuneEncodingStrategy#0;class#Document#0" />
+            <element signature="method#setListFromText#0;class#Document#0" />
+            <element signature="method#setModifiedDate#0;class#Document#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Line.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        <state relative-caret-position="136">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Line#0;class#Line#0" />
+            <element signature="method#playReverseLine#0;class#Line#0" />
+            <element signature="method#playEncodedLine#0;class#Line#0" />
+            <element signature="method#tuneEncodingStrategy#0;class#Line#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/Text2SpeechEditorView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="71" selection-start-line="5" selection-start-column="71" selection-end-line="5" selection-end-column="71" />
+        <state relative-caret-position="119">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/text2speechapis/TextToSpeechAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+          <folding>
+            <element signature="docComment;method#setVolume#0;class#TextToSpeechAPI#0" />
+            <element signature="docComment;method#setPitch#0;class#TextToSpeechAPI#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/text2speechapis/FreeTTSAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="816">
+          <caret line="60" column="36" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#setVolume#0;class#FreeTTSAdapter#0" />
+            <element signature="method#setPitch#0;class#FreeTTSAdapter#0" />
+            <element signature="method#setRate#0;class#FreeTTSAdapter#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/text2speechapis/FakeTextToSpeechAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/encodingstrategies/AtBashEncoding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
         </state>
       </provider>
     </entry>

@@ -1,24 +1,29 @@
 package commands;
 
+import controller.Database;
+import model.Document;
+
+import javax.swing.*;
+
 public class CommandsFactory {
 
     /**
-     * No fields ? Here we create the factory for the classes :
-     * SaveDocument
-     * NewDocument
-     * LineToSpeech
-     * ReplayCommand
-     * OpenDocument
-     * TuneAudio
-     * EditDocument
+     * @param database
+     * @param titleField
+     * @param authorField
+     * @param textArea
+     * @param editAuthorItem
+     * @param editTitleItem
      */
-
-
-    /**
-     * Constructor for the class CommandsFactory
-     */
-    public CommandsFactory() {
-        //TODO Fill your code HERE
+    public CommandsFactory(Database database, JTextField titleField, JTextField authorField,
+                           JTextArea textArea,JMenuItem editAuthorItem, JMenuItem editTitleItem)
+    {
+        this.authorField = authorField;
+        this.textArea    = textArea;
+        this.database    = database;
+        this.titleField  = titleField;
+        this.editAuthorItem = editAuthorItem;
+        this.editTitleItem = editTitleItem;
     }
 
     /**
@@ -27,7 +32,39 @@ public class CommandsFactory {
      * @return an ActionListener
      */
     public ActionListener createCommand(String command) {
-        //TODO Fill your code HERE
-        return null;
+        if (command.equals("NewDocument")) {
+            return new NewDocument(database,authorField,titleField);
+        }
+        else if (command.equals("EditDocument")) {
+        	return new EditDocument(database, authorField, titleField, textArea,editAuthorItem,
+                    editTitleItem);
+        }
+        else if (command.equals("ExitListener")) {
+        	return new ExitListener();
+        }
+        else if (command.equals("OpenDocument")) {
+        	return new OpenDocument(database, authorField, titleField, textArea);
+        }
+        else if (command.equals("SaveDocument")) {
+        	return new SaveDocument(database, authorField, titleField, textArea);
+        }
+        else if (command.equals("DocumentToSpeech")) {
+            return new DocumentToSpeech(database, authorField, titleField, textArea);
+        }
+        else if (command.equals("LineToSpeech")) {
+            return new LineToSpeech(database,authorField,titleField,textArea);
+        }
+        else {
+            throw new IllegalArgumentException();
+        }
     }
+
+    /**
+     * private fields
+     */
+    private Database database;
+    private JTextArea textArea;
+    private JTextField titleField;
+    private JTextField authorField;
+    private JMenuItem editAuthorItem, editTitleItem;
 }
