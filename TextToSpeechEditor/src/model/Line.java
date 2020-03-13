@@ -15,9 +15,8 @@ public class Line {
      */
     public Line(String line)
     {
-        this.line = line;
-
-        ttsFactory = new TextToSpeechAPIFactory();
+        this.line    = line;
+        ttsFactory   = new TextToSpeechAPIFactory();
         audioManager = ttsFactory.createTTSAPI("FreeTTSAdapter");
 
         words = new ArrayList<String>();

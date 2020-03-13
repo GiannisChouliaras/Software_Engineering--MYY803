@@ -1,7 +1,6 @@
 package commands;
 
 import controller.Database;
-import model.Document;
 
 import javax.swing.*;
 
@@ -14,16 +13,19 @@ public class CommandsFactory {
      * @param textArea
      * @param editAuthorItem
      * @param editTitleItem
+     * @param ttsLineItem
      */
     public CommandsFactory(Database database, JTextField titleField, JTextField authorField,
-                           JTextArea textArea,JMenuItem editAuthorItem, JMenuItem editTitleItem)
+                           JTextArea textArea,JMenuItem editAuthorItem, JMenuItem editTitleItem,
+                           JMenuItem ttsLineItem)
     {
-        this.authorField = authorField;
-        this.textArea    = textArea;
-        this.database    = database;
-        this.titleField  = titleField;
+        this.authorField    = authorField;
+        this.textArea       = textArea;
+        this.database       = database;
+        this.titleField     = titleField;
         this.editAuthorItem = editAuthorItem;
-        this.editTitleItem = editTitleItem;
+        this.editTitleItem  = editTitleItem;
+        this.ttsLineItem    = ttsLineItem;
     }
 
     /**
@@ -52,7 +54,10 @@ public class CommandsFactory {
             return new DocumentToSpeech(database, authorField, titleField, textArea);
         }
         else if (command.equals("LineToSpeech")) {
-            return new LineToSpeech(database,authorField,titleField,textArea);
+            return new LineToSpeech(database,authorField,titleField,textArea, ttsLineItem);
+        }
+        else if (command.equals("InfoListener")) {
+            return new InfoListener(database, authorField, titleField);
         }
         else {
             throw new IllegalArgumentException();
@@ -66,5 +71,5 @@ public class CommandsFactory {
     private JTextArea textArea;
     private JTextField titleField;
     private JTextField authorField;
-    private JMenuItem editAuthorItem, editTitleItem;
+    private JMenuItem editAuthorItem, editTitleItem, ttsLineItem;
 }

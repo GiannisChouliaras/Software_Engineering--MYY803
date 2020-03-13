@@ -49,7 +49,7 @@ public class OpenDocument implements ActionListener {
 	{
     	JFileChooser fs = new JFileChooser(new File("C:\\"));
     	fs.setDialogTitle("Open a File");
-    	fs.setFileFilter(new FileTypeFilter(".txt", "Text File"));
+    	fs.setFileFilter(new FileTypeFilter(".tts", "TTS File"));
     	
     	int result = fs.showOpenDialog(null);
     	

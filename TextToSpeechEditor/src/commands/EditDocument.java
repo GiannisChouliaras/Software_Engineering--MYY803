@@ -37,18 +37,22 @@ public class EditDocument implements ActionListener {
     {
         if (database.containsDocument(author.getText(), title.getText())) {
         	Document document = database.getDocument(author.getText(), title.getText());
+            database.removeDocument(author.getText(), title.getText());
         	if (actionEvent.getSource() == editAuthorItem) {
-                String myAuthor = JOptionPane.showInputDialog(null, "give new name");
+                String myAuthor = JOptionPane.showInputDialog(null, "give new Author name:");
                 document.setAuthor(myAuthor);
                 author.setText(myAuthor);
+                database.addToDatabase(document);
             }
         	else if (actionEvent.getSource() == editTitleItem) {
                 String myTitle = JOptionPane.showInputDialog(null, "give new title");
-                document.setAuthor(myTitle);
+                document.setTitle(myTitle);
                 title.setText(myTitle);
+                database.addToDatabase(document);
             }
         	else {
                 document.replaceContents(textArea.getText());
+                database.addToDatabase(document);
             }
 
         }

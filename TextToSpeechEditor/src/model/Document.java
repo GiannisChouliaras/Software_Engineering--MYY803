@@ -20,7 +20,6 @@ public class Document {
 		this.authorString = authorString;
 		this.titleString  = titleString;
 
-		
 		//generate date.
 		Date thisDate = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY HH:mm:ss");
@@ -45,6 +44,7 @@ public class Document {
 		this.titleString  		= titleString;
 		this.dateString   		= dateString;
 		this.lastModifiedString = lastModifiedString;
+
 		lines = new ArrayList<>();
 		ttsFactory = new TextToSpeechAPIFactory();
 		audioManager = ttsFactory.createTTSAPI("FreeTTSAdapter");
@@ -132,9 +132,36 @@ public class Document {
 		}
 	}
 
-	public void replaceContents(String content) {
-		lines.clear();
-		setListFromText(content);
+	public void replaceContents(String content)
+	{
+		String[] arrayContent = content.split("\n");
+		if (arrayContent.length == lines.size()) // if same size
+		{
+			for (int counter = 0; counter < arrayContent.length; counter++) {
+				if (arrayContent[counter].equals(lines.get(counter).getLine())) continue;
+				else lines.set(counter, new Line(arrayContent[counter]));
+			}
+		}
+		else if (arrayContent.length > lines.size()) // if JtextArea is bigger. we need to add
+		{
+			for (int counter = 0; counter < lines.size(); counter++) {
+				if (arrayContent[counter].equals(lines.get(counter).getLine())) continue;
+				else lines.set(counter, new Line(arrayContent[counter]));
+			}
+			for (int counter = lines.size(); counter < arrayContent.length; counter++) {
+				lines.add(new Line(arrayContent[counter]));
+			}
+		}
+		else // if arrayList is bigger than JText (we need to remove)
+		{
+			for (int counter = 0; counter < arrayContent.length; counter++) {
+				if (arrayContent[counter].equals(lines.get(counter).getLine())) continue;
+				else lines.set(counter, new Line(arrayContent[counter]));
+			}
+			for (int counter = lines.size() - 1; counter >= arrayContent.length; counter--) {
+				lines.remove(counter);
+			}
+		}
 	}
 	
 	/**
@@ -175,18 +202,6 @@ public class Document {
 		return wholeText;
 	}
 
-	public String getTextWithNumbers()
-	{
-		String wholeText = "";
-		int counter = 0;
-		for (Line line : lines) {
-			counter ++;
-			wholeText += counter + ". " + line.getLine() + "\n";
-		}
-
-		return wholeText;
-	}
-
 	public void setModifiedDate(String mDate) {
 		this.lastModifiedString = mDate;
 	}
@@ -194,8 +209,13 @@ public class Document {
 	/**
 	 * @return a String so we can write it to txt file.
 	 */
-	public String getInfo() {
+	public String infoToWrite() {
 		return authorString + "\n" + titleString + "\n" + dateString + "\n" + lastModifiedString + "\n";
+	}
+
+	public String infoButton() {
+		return "Title: " + titleString + "\nAuthor: " + authorString + "\nCreation Date: " + dateString
+				+ "\nLast Modified Date: " + lastModifiedString;
 	}
 
 	

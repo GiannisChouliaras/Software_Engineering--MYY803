@@ -3,9 +3,7 @@ package commands;
 import controller.Database;
 import model.Document;
 
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 public class LineToSpeech implements ActionListener {
@@ -18,12 +16,13 @@ public class LineToSpeech implements ActionListener {
      * @param textArea
      */
     public LineToSpeech(Database database, JTextField authorField, JTextField titleField,
-                        JTextArea textArea)
+                        JTextArea textArea, JMenuItem ttsLineItem)
     {
         this.database    = database;
         this.authorField = authorField;
         this.textArea    = textArea;
         this.titleField  = titleField;
+        this.ttsLineItem = ttsLineItem;
     }
 
     /**
@@ -35,11 +34,15 @@ public class LineToSpeech implements ActionListener {
     {
         if (database.containsDocument(authorField.getText(), titleField.getText())) {
             Document document = database.getDocument(authorField.getText(), titleField.getText());
-            String line = JOptionPane.showInputDialog("Give me the line you want: ");
-            int lineNumber = Integer.parseInt(line);
-            document.playLine(lineNumber-1);
-            //String thisLine = textArea.getSelectedText();
-            //document.playLineString(thisLine);
+            if (actionEvent.getSource() == ttsLineItem) {
+                String line = JOptionPane.showInputDialog("Give me the line you want: ");
+                int lineNumber = Integer.parseInt(line);
+                document.playLine(lineNumber-1);
+            }
+            else {
+                String thisLine = textArea.getSelectedText();
+                document.playLineString(thisLine);
+            }
         }
         else {
             JOptionPane.showMessageDialog(null, "No document in database.");
@@ -54,4 +57,5 @@ public class LineToSpeech implements ActionListener {
     private JTextField authorField;
     private JTextField titleField;
     private Database database;
+    private JMenuItem ttsLineItem;
 }

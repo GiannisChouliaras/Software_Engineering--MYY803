@@ -42,7 +42,6 @@ public class Database {
 			}
 		}
 		database.add(document);
-		
 	}
 
 	/**
@@ -58,6 +57,17 @@ public class Database {
 			}
 		}
 		return false;
+	}
+
+	public void removeDocument(String author, String title)
+	{
+		for (Document document : database) {
+			if (document.getAuthor().equals(author) && document.getTitle().equals(title)) {
+				database.remove(document);
+				return;
+			}
+		}
+		System.out.println("couldn't find a document to delete! DATABASE, LINE 70");
 	}
 
 	/**
