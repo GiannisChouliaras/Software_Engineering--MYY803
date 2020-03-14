@@ -6,10 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 
 import controller.Database;
@@ -25,12 +22,20 @@ public class OpenDocument implements ActionListener {
 	 * @param titleString  JTextField field.
 	 * @param textArea	   JTextArea field
 	 */
-    public OpenDocument(Database database, JTextField authorString, JTextField titleString, JTextArea textArea)
+    public OpenDocument(Database database, JTextField authorString, JTextField titleString, JTextArea textArea,
+						JSlider volumeSlider, JSlider pitchSlider, JSlider rateSlider,
+						JLabel volumeValue, JLabel pitchValue, JLabel rateValue)
 	{
         this.authorString = authorString;
         this.titleString  = titleString;
-        this.textArea = textArea;
-        this.database = database;
+        this.textArea     = textArea;
+        this.database     = database;
+        this.volumeSlider = volumeSlider;
+        this.volumeValue  = volumeValue;
+        this.pitchSlider  = pitchSlider;
+        this.pitchValue   = pitchValue;
+        this.rateSlider   = rateSlider;
+        this.rateValue    = rateValue;
         document = null;
     }
 
@@ -102,6 +107,12 @@ public class OpenDocument implements ActionListener {
 					database.addToDatabase(document);
 					placeInfo();
 				}
+				volumeSlider.setValue(document.getVolume());
+				pitchSlider.setValue(document.getPitch());
+				rateSlider.setValue(document.getRate());
+				volumeValue.setText(Integer.toString(volumeSlider.getValue()));
+				pitchValue.setText(Integer.toString(pitchSlider.getValue()));
+				rateValue.setText(Integer.toString(rateSlider.getValue()));
     			
     		} catch (Exception e1) {
 				JOptionPane.showMessageDialog(null, e1.getMessage());
@@ -124,4 +135,6 @@ public class OpenDocument implements ActionListener {
 	private JTextArea textArea;
 	private Database database;
 	private Document document;
+	private JSlider volumeSlider, rateSlider, pitchSlider;
+	private JLabel volumeValue, rateValue, pitchValue;
 } // end of class

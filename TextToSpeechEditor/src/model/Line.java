@@ -72,6 +72,18 @@ public class Line {
     }
 
 
+    public void setVolumeLine(int value) {
+        audioManager.setVolume(value);
+    }
+
+    public void setPitchLine(int value) {
+        audioManager.setPitch(value);
+    }
+
+    public void setRateLine(int value) {
+        audioManager.setRate(value);
+    }
+
     /** private Fields */
     private EncodingStrategy encodingStrategy;
     private TextToSpeechAPI audioManager;

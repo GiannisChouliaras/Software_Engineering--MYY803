@@ -16,13 +16,14 @@ public class LineToSpeech implements ActionListener {
      * @param textArea
      */
     public LineToSpeech(Database database, JTextField authorField, JTextField titleField,
-                        JTextArea textArea, JMenuItem ttsLineItem)
+                        JTextArea textArea, JMenuItem ttsLineItem, JMenuItem ttsReverseLineItem)
     {
-        this.database    = database;
-        this.authorField = authorField;
-        this.textArea    = textArea;
-        this.titleField  = titleField;
-        this.ttsLineItem = ttsLineItem;
+        this.database           = database;
+        this.authorField        = authorField;
+        this.textArea           = textArea;
+        this.titleField         = titleField;
+        this.ttsLineItem        = ttsLineItem;
+        this.ttsReverseLineItem = ttsReverseLineItem;
     }
 
     /**
@@ -38,6 +39,11 @@ public class LineToSpeech implements ActionListener {
                 String line = JOptionPane.showInputDialog("Give me the line you want: ");
                 int lineNumber = Integer.parseInt(line);
                 document.playLine(lineNumber-1);
+            }
+            else if (actionEvent.getSource() == ttsReverseLineItem) {
+                String line = JOptionPane.showInputDialog("Give me the line you want: ");
+                int lineNumber = Integer.parseInt(line);
+                document.playReversedLine(lineNumber - 1);
             }
             else {
                 String thisLine = textArea.getSelectedText();
@@ -57,5 +63,5 @@ public class LineToSpeech implements ActionListener {
     private JTextField authorField;
     private JTextField titleField;
     private Database database;
-    private JMenuItem ttsLineItem;
+    private JMenuItem ttsLineItem, ttsReverseLineItem;
 }

@@ -33,4 +33,8 @@ public interface TextToSpeechAPI {
      * method setRate
      */
     public void setRate(int rate);
+
+    public int getRate();
+    public int getPitch();
+    public int getVolume();
 }

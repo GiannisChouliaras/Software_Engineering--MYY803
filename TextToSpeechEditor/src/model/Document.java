@@ -190,6 +190,31 @@ public class Document {
 
 	public void setTitle(String titleString) { this.titleString = titleString;}
 
+	public void setVolumeDocument(int value) {
+		audioManager.setVolume(value);
+		for (Line line : lines) {
+			line.setVolumeLine(value);
+		}
+	}
+
+	public void setRateDocument(int value) {
+		audioManager.setRate(value);
+		for (Line line : lines) {
+			line.setRateLine(value);
+		}
+	}
+
+	public void setPitchDocument(int value) {
+		audioManager.setPitch(value);
+		for (Line line : lines) {
+			line.setPitchLine(value);
+		}
+	}
+
+	public int getPitch() { return audioManager.getPitch();}
+	public int getRate() { return audioManager.getRate();}
+	public int getVolume() { return audioManager.getVolume();}
+
 	/**
 	 * @return a String with all the Lines.
 	 */
@@ -218,7 +243,6 @@ public class Document {
 				+ "\nLast Modified Date: " + lastModifiedString;
 	}
 
-	
 
 	/** private Fields */
 	private EncodingStrategy encodingStrategy;

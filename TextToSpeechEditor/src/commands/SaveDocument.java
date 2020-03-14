@@ -45,6 +45,7 @@ public class SaveDocument implements ActionListener {
 	  // Start to save the file. JFileChooser and using the class FileTypeFilter.
 	  JFileChooser fs = new JFileChooser(new File("C:\\"));
 	  fs.setDialogTitle("Save a File");
+
 	  fs.setFileFilter(new FileTypeFilter(".tts", "TTS File"));
 	  int result = fs.showSaveDialog(null);
 

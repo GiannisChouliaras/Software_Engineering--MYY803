@@ -1,24 +1,68 @@
 package commands;
 
+import controller.Database;
+import model.Document;
+
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
 import java.awt.event.ActionEvent;
 
-public class TuneAudio implements ActionListener {
+public class TuneAudio implements ChangeListener {
 
-    /** no fields ? */
 
     /**
-     * Constructor of the class TuneAudio
+     * Constructor.
+     * @param database
+     * @param author
+     * @param title
+     * @param volumeSlider
+     * @param pitchSlider
+     * @param rateSlider
      */
-    public TuneAudio() {
-        //TODO fill your code HERE
+    public TuneAudio(Database database, JTextField author, JTextField title,
+                     JSlider volumeSlider, JSlider pitchSlider, JSlider rateSlider,
+                     JLabel volumeValue, JLabel pitchValue, JLabel rateValue)
+    {
+        this.database     = database;
+        this.author       = author;
+        this.title        = title;
+        this.volumeSlider = volumeSlider;
+        this.rateSlider   = rateSlider;
+        this.pitchSlider  = pitchSlider;
+        this.volumeValue  = volumeValue;
+        this.pitchValue   = pitchValue;
+        this.rateValue    = rateValue;
     }
 
-    /**
-     * @param actionEvent
-     * We implement here the method actionPerformed(ActionEvent actionEvent)
-     */
     @Override
-    public void actionPerformed(ActionEvent actionEvent) {
-        //TODO fill your code HERE
+    public void stateChanged(ChangeEvent changeEvent) {
+        String authorString = author.getText();
+        String titleString = title.getText();
+
+        if (database.containsDocument(authorString,titleString))
+        {
+            Document document = database.getDocument(authorString, titleString);
+            if (changeEvent.getSource() == volumeSlider) {
+                document.setVolumeDocument(volumeSlider.getValue());
+                volumeValue.setText(Integer.toString(volumeSlider.getValue()));
+            } else if (changeEvent.getSource() == rateSlider) {
+                document.setRateDocument(rateSlider.getValue());
+                rateValue.setText(Integer.toString(rateSlider.getValue()));
+            } else {
+                document.setPitchDocument(pitchSlider.getValue());
+                pitchValue.setText(Integer.toString(pitchSlider.getValue()));
+            }
+        }
+        else
+            JOptionPane.showMessageDialog(null, "no database with this author and title");
     }
+
+
+    /**
+     * Fields
+     */
+    private Database database;
+    private JTextField author, title;
+    private JSlider volumeSlider, pitchSlider, rateSlider;
+    private JLabel volumeValue, pitchValue, rateValue;
 }

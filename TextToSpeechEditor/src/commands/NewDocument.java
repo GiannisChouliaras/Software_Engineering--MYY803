@@ -2,8 +2,7 @@ package commands;
 
 import java.awt.event.ActionEvent;
 
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 import controller.Database;
 import model.Document;
@@ -16,11 +15,17 @@ public class NewDocument implements ActionListener {
 	 * @param titleField
 	 * @param authorField
 	 */
-    public NewDocument(Database database, JTextField authorField, JTextField titleField)
+    public NewDocument(Database database, JTextField authorField, JTextField titleField ,
+					   JTextArea textArea, JSlider volumeSlider, JSlider rateSlider,
+					   JSlider pitchSlider)
 	{
-    	this.titleField = titleField;
-    	this.authorField = authorField;
-    	this.database = database;
+    	this.titleField   = titleField;
+    	this.authorField  = authorField;
+    	this.database     = database;
+    	this.volumeSlider = volumeSlider;
+    	this.pitchSlider  = pitchSlider;
+    	this.rateSlider   = rateSlider;
+    	this.textArea 	  = textArea;
     }
 
     /**
@@ -31,14 +36,18 @@ public class NewDocument implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent)
 	{
     	document = null;
-		String authorString = JOptionPane.showInputDialog("Give me Author");
+		String authorString = JOptionPane.showInputDialog("Give me the Author");
 		String titleString  = JOptionPane.showInputDialog("Give me title");
 		if (database.containsDocument(authorString,titleString)) {
 			JOptionPane.showMessageDialog(null,"Document already exists in database");
 		}
 		else {
+			textArea.setText("");
 			document = new Document(authorString, titleString);
 			document.setModifiedDate("-");
+			document.setVolumeDocument(volumeSlider.getValue());
+			document.setPitchDocument(pitchSlider.getValue());
+			document.setRateDocument(rateSlider.getValue());
 			database.addToDatabase(document);
 			JOptionPane.showInternalMessageDialog(null, "Document Added to Database");
 			titleField.setText(titleString);
@@ -54,4 +63,6 @@ public class NewDocument implements ActionListener {
 	private JTextField authorField;
 	private Database database;
 	private Document document;
+	private JTextArea textArea;
+	private JSlider volumeSlider, pitchSlider, rateSlider;
 }

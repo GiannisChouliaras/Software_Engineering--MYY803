@@ -35,10 +35,12 @@ public class FreeTTSAdapter implements TextToSpeechAPI {
     @Override
     public void setVolume(int volume)
     {
+
         if (voice != null) {
             //voice.allocate();
             try {
-                voice.setVolume((float)volume);
+                float number = (float) volume / (float) 100;
+                voice.setVolume(number);
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
@@ -80,6 +82,9 @@ public class FreeTTSAdapter implements TextToSpeechAPI {
         }
     }
 
+    public int getVolume() { return (int) voice.getVolume() * 100;}
+    public int getPitch() { return (int) voice.getPitch(); }
+    public int getRate() { return (int) voice.getRate(); }
 
     /**
      * Fields

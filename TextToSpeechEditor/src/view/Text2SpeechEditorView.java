@@ -1,6 +1,7 @@
 package view;
 
 import commands.ActionListener;
+import commands.ChangeListener;
 import commands.CommandsFactory;
 import controller.Database;
 
@@ -10,16 +11,6 @@ import java.awt.*;
 
 public class Text2SpeechEditorView {
 
-    /**
-     * Fields
-     */
-    private JFrame frame;
-    private JTextField titleTextField;
-    private JTextField authorTextField;
-    private Database database;
-    private JTextArea textArea;
-    private CommandsFactory commandFactory;
-    private JButton textToSpeechButton, lineToSpeechButton;
     /**
      * Create the application.
      */
@@ -140,19 +131,29 @@ public class Text2SpeechEditorView {
         formPanel.add(bottomFormPanel, BorderLayout.SOUTH);
         bottomFormPanel.setLayout(null);
 
-        JSlider volumeSlider = new JSlider();
+        volumeSlider = new JSlider();
         volumeSlider.setOrientation(SwingConstants.VERTICAL);
         volumeSlider.setBounds(61, 65, 46, 145);
+        volumeSlider.setMinimum(0);
+        volumeSlider.setMaximum(99);
+        volumeSlider.setValue(50);
         bottomFormPanel.add(volumeSlider);
 
-        JSlider rateSlider = new JSlider();
+        rateSlider = new JSlider();
         rateSlider.setOrientation(SwingConstants.VERTICAL);
         rateSlider.setBounds(119, 65, 46, 145);
+        rateSlider.setMinimum(0);
+        rateSlider.setMaximum(200);
+        rateSlider.setValue(100);
         bottomFormPanel.add(rateSlider);
 
-        JSlider pitchSlider = new JSlider();
+        pitchSlider = new JSlider();
         pitchSlider.setOrientation(SwingConstants.VERTICAL);
         pitchSlider.setBounds(177, 65, 46, 145);
+
+        pitchSlider.setMinimum(0);
+        pitchSlider.setMaximum(200);
+        pitchSlider.setValue(100);
         bottomFormPanel.add(pitchSlider);
 
         JLabel volumeLabel = new JLabel("V");
@@ -172,6 +173,25 @@ public class Text2SpeechEditorView {
         pitchLabel.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
         pitchLabel.setBounds(196, 45, 16, 16);
         bottomFormPanel.add(pitchLabel);
+        
+        volumeValue = new JLabel(Integer.toString(volumeSlider.getValue()));
+        volumeValue.setForeground(new Color(131, 131, 131));
+        volumeValue.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
+        volumeValue.setBounds(75, 208, 27, 16);
+        bottomFormPanel.add(volumeValue);
+        
+        rateValue = new JLabel(Integer.toString(rateSlider.getValue()));
+        rateValue.setForeground(new Color(131, 131, 131));
+        rateValue.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
+        rateValue.setBounds(133, 208, 27, 16);
+        bottomFormPanel.add(rateValue);
+
+        pitchValue = new JLabel(Integer.toString(pitchSlider.getValue()));
+        pitchValue.setForeground(new Color(131, 131, 131));
+        pitchValue.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
+        pitchValue.setBounds(191, 208, 27, 16);
+        bottomFormPanel.add(pitchValue);
+        
     } // end of method FormPanel
 
     private void TextArea() {
@@ -275,7 +295,8 @@ public class Text2SpeechEditorView {
         aboutMenu.add(infoItem);
 
         commandFactory = new CommandsFactory(database, authorTextField, titleTextField, textArea,
-                editAuthorItem, editTitleItem, ttsLineItem);
+                editAuthorItem, editTitleItem, ttsLineItem, ttsRevLineItem, ttsRevAllItem,
+                volumeSlider,pitchSlider,rateSlider, volumeValue, pitchValue, rateValue);
 
         /**
          * ~~~~~~~~~~~~~~~~~~~~~~~ ACTIONS LISTENERS ~~~~~~~~~~~~~~~~~~~~~~~
@@ -300,14 +321,36 @@ public class Text2SpeechEditorView {
 
         ActionListener documentToSpeech = commandFactory.createCommand("DocumentToSpeech");
         textToSpeechButton.addActionListener(documentToSpeech);
+        ttsRevAllItem.addActionListener(documentToSpeech);
 
         ActionListener lineToSpeech = commandFactory.createCommand("LineToSpeech");
         lineToSpeechButton.addActionListener(lineToSpeech);
         ttsLineItem.addActionListener(lineToSpeech);
+        ttsRevLineItem.addActionListener(lineToSpeech);
 
         ActionListener infoListener = commandFactory.createCommand("InfoListener");
         infoItem.addActionListener(infoListener);
 
+        /**
+         * ~~~~~~~~~~~~~~~~~~~~~~~ CHANGE LISTENERS ~~~~~~~~~~~~~~~~~~~~~~~
+         */
+        ChangeListener tuneAudio = commandFactory.createChangeCommand("TuneAudio");
+        volumeSlider.addChangeListener(tuneAudio);
+        pitchSlider.addChangeListener(tuneAudio);
+        rateSlider.addChangeListener(tuneAudio);
+
     } // end of method MenuBar
 
+    /**
+     * Fields
+     */
+    private JFrame frame;
+    private JTextField titleTextField;
+    private JTextField authorTextField;
+    private JLabel volumeValue, pitchValue, rateValue;
+    private Database database;
+    private JTextArea textArea;
+    private CommandsFactory commandFactory;
+    private JButton textToSpeechButton, lineToSpeechButton;
+    JSlider pitchSlider, rateSlider, volumeSlider;
 } //end of class Text2SpeechEditorView
