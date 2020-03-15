@@ -8,7 +8,7 @@ public class FakeTextToSpeechAPI implements TextToSpeechAPI {
      */
 
     /**
-     * Costructor of the class FakeTextToSpeechAPI
+     * Constructor of the class FakeTextToSpeechAPI
      */
     public FakeTextToSpeechAPI() {
         //TODO Fill your code HERE
