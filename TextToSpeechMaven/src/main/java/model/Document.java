@@ -59,6 +59,7 @@ public class Document {
 		for (Line line : lines) {
 			audioLines += line.getLine() + "\n";
 		}
+		audioLines = audioLines.substring(0, audioLines.length() -1);
 		audioManager.play(audioLines);
 	}
 
@@ -76,7 +77,13 @@ public class Document {
 	 * playing the Encoded contents of a document.
 	 */
 	public void playEncodedContents() {
-		//TODO fill your code HERE.
+		String encodeContent = "";
+		for (Line line : lines) {
+			encodeContent += line.getLine() + "\n";
+		}
+		encodeContent = encodeContent.substring(0, encodeContent.length() -1);
+		String encoded = encodingStrategy.encode(encodeContent);
+		audioManager.play(encoded);
 	}
 
 	/**
@@ -107,7 +114,11 @@ public class Document {
 	 * play an encoded single line of the contents
 	 */
 	public void playEncodedLine(int line) {
-		//TODO fill your code HERE.
+		Line myLine = lines.get(line);
+		myLine.tuneEncodingStrategy(encodingStrategy);
+
+		myLine.playEncodedLine();
+
 	}
 
 	/**
@@ -115,7 +126,7 @@ public class Document {
 	 * tune encoding Strategy (?)
 	 */
 	public void tuneEncodingStrategy(EncodingStrategy encodedStrategy) {
-		//TODO fill your code HERE.
+		this.encodingStrategy = encodedStrategy;
 	}
 
 	/**

@@ -3,10 +3,6 @@ package encodingstrategies;
 public abstract class TemplateEncoding implements EncodingStrategy {
 
     /**
-     * no fields (?)
-     */
-
-    /**
      * Constructor for the class TemplateEncoding
      */
     public TemplateEncoding(){
@@ -19,8 +15,13 @@ public abstract class TemplateEncoding implements EncodingStrategy {
      */
     @Override
     public String encode(String string) {
-        //TODO Fill your code HERE
-        return null;
+        String encoded ="";
+        char ch;
+        for (int i = 0; i < string.length(); i++) {
+            ch = mapCharacter(string.charAt(i));
+            encoded += ch;
+        }
+        return encoded;
     }
 
     /**

@@ -19,7 +19,12 @@ public class StrategiesFactory {
      * @return an EncodingStrategy
      */
     public EncodingStrategy createStrategy(String string) {
-        //TODO Fill your code HERE
-        return null;
+        if (string.equals("AtBashEncoding")) {
+            return new AtBashEncoding();
+        }
+        else if (string.equals("Rot13Encoding")) {
+            return new Rot13Encoding();
+        }
+        else throw new IllegalArgumentException("Encoding Factory Problem");
     }
 }

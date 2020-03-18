@@ -19,7 +19,9 @@ public class CommandsFactory {
                            JTextArea textArea,JMenuItem editAuthorItem, JMenuItem editTitleItem,
                            JMenuItem ttsLineItem, JMenuItem ttsReverseLineItem,
                            JMenuItem ttsReverseAllItem, JSlider volumeSlider, JSlider pitchSlider,
-                           JSlider rateSlider,JLabel volumeValue, JLabel pitchValue, JLabel rateValue)
+                           JSlider rateSlider,JLabel volumeValue, JLabel pitchValue, JLabel rateValue,
+                           JMenuItem atBashEncoding, JMenuItem atBashEncodingLine, JMenuItem rot13Encoding,
+                           JMenuItem rot13EncodingLine)
     {
         this.authorField        = authorField;
         this.textArea           = textArea;
@@ -36,6 +38,10 @@ public class CommandsFactory {
         this.volumeValue        = volumeValue;
         this.pitchValue         = pitchValue;
         this.rateValue          = rateValue;
+        this.atBashEncoding     = atBashEncoding;
+        this.atBashEncodingLine = atBashEncodingLine;
+        this.rot13Encoding      = rot13Encoding;
+        this.rot13EncodingLine  = rot13EncodingLine;
 
     }
 
@@ -74,6 +80,10 @@ public class CommandsFactory {
         else if (command.equals("InfoListener")) {
             return new InfoListener(controller, authorField, titleField);
         }
+        else if (command.equals("TuneEncoding")) {
+            return new TuneEncoding(controller, authorField, titleField, textArea, atBashEncoding,atBashEncodingLine,
+                    rot13Encoding,rot13EncodingLine);
+        }
         else {
             throw new IllegalArgumentException("Factory problem");
         }
@@ -94,7 +104,10 @@ public class CommandsFactory {
     private JTextField  titleField;
     private JTextField  authorField;
     private JMenuItem   editAuthorItem, editTitleItem, ttsLineItem,
-                        ttsReverseLineItem, ttsReverseAllItem;
+                        ttsReverseLineItem, ttsReverseAllItem,
+                        atBashEncoding, atBashEncodingLine, rot13Encoding,
+                        rot13EncodingLine;
+
     private JSlider     volumeSlider, pitchSlider, rateSlider;
     private JLabel      volumeValue, pitchValue, rateValue;
 }

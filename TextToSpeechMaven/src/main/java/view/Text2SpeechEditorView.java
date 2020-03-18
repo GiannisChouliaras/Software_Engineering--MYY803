@@ -3,10 +3,13 @@ package view;
 import commands.ActionListener;
 import commands.ChangeListener;
 import commands.CommandsFactory;
+import commands.EncodingInfo;
 import controller.Controller;
 
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;
+
+
 import java.awt.*;
 
 public class Text2SpeechEditorView {
@@ -113,7 +116,7 @@ public class Text2SpeechEditorView {
         textToSpeechButton.setBorderPainted(false);
         textToSpeechButton.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
         textToSpeechButton.setBackground(new Color(42, 42, 43));
-        textToSpeechButton.setBounds(28, 134, 246, 29);
+        textToSpeechButton.setBounds(28, 114, 246, 29);
         middleFormPanel.add(textToSpeechButton);
 
         lineToSpeechButton = new JButton("Line To Speech");
@@ -122,8 +125,22 @@ public class Text2SpeechEditorView {
         lineToSpeechButton.setBorderPainted(false);
         lineToSpeechButton.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
         lineToSpeechButton.setBackground(new Color(42, 42, 43));
-        lineToSpeechButton.setBounds(28, 175, 246, 29);
+        lineToSpeechButton.setBounds(28, 150, 246, 29);
         middleFormPanel.add(lineToSpeechButton);
+        
+        atBashEncodeLabel = new JLabel("");
+        atBashEncodeLabel.setIcon(new ImageIcon("icon/info2.png"));
+        atBashEncodeLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        atBashEncodeLabel.setForeground(Color.WHITE);
+        atBashEncodeLabel.setBounds(76, 191, 73, 48);
+        middleFormPanel.add(atBashEncodeLabel);
+        
+        rot13EncodingLabel = new JLabel();
+        rot13EncodingLabel.setIcon(new ImageIcon("icon/info2.png"));
+        rot13EncodingLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        rot13EncodingLabel.setForeground(Color.WHITE);
+        rot13EncodingLabel.setBounds(159, 191, 73, 48);
+        middleFormPanel.add(rot13EncodingLabel);
 
         JPanel bottomFormPanel = new JPanel();
         bottomFormPanel.setPreferredSize(new Dimension(100, 250));
@@ -289,6 +306,27 @@ public class Text2SpeechEditorView {
         ttsRevLineItem.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         ttsMenu.add(ttsRevLineItem);
 
+        // ~~~~~~~~~~~~~ ENCODE ~~~~~~~~~~~~~~~~~~
+        JMenuItem atBashEncoding = new JMenuItem("AtBash Encode All");
+        atBashEncoding.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+        encodeMenu.add(atBashEncoding);
+
+        JMenuItem atBashEncodingLine = new JMenuItem("AtBash Encode Line");
+        atBashEncodingLine.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+        encodeMenu.add(atBashEncodingLine);
+
+        encodeMenu.add(new JSeparator());
+
+        JMenuItem rot13Encoding = new JMenuItem("Rot13 Encode All");
+        rot13Encoding.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+        encodeMenu.add(rot13Encoding);
+
+        JMenuItem rot13EncodingLine = new JMenuItem("Rot13 Encode Line");
+        rot13EncodingLine.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+        encodeMenu.add(rot13EncodingLine);
+
+
+
         // ~~~~~~~~~~~~~ ABOUT ~~~~~~~~~~~~~~~~~~
         JMenuItem infoItem = new JMenuItem("Document Info");
         infoItem.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
@@ -300,7 +338,8 @@ public class Text2SpeechEditorView {
          */
         commandFactory = new CommandsFactory(controller, authorTextField, titleTextField, textArea,
                 editAuthorItem, editTitleItem, ttsLineItem, ttsRevLineItem, ttsRevAllItem,
-                volumeSlider,pitchSlider,rateSlider, volumeValue, pitchValue, rateValue);
+                volumeSlider,pitchSlider,rateSlider, volumeValue, pitchValue, rateValue,
+                atBashEncoding,atBashEncodingLine,rot13Encoding,rot13EncodingLine);
 
         /**
          * ~~~~~~~~~~~~~~~~~~~~~~~ ACTIONS LISTENERS ~~~~~~~~~~~~~~~~~~~~~~~
@@ -335,6 +374,18 @@ public class Text2SpeechEditorView {
         ActionListener infoListener = commandFactory.createCommand("InfoListener");
         infoItem.addActionListener(infoListener);
 
+        ActionListener tuneEncoding = commandFactory.createCommand("TuneEncoding");
+        atBashEncoding.addActionListener(tuneEncoding);
+        atBashEncodingLine.addActionListener(tuneEncoding);
+        rot13Encoding.addActionListener(tuneEncoding);
+        rot13EncodingLine.addActionListener(tuneEncoding);
+        
+        EncodingInfo encodingInfo = new EncodingInfo(textArea,atBashEncodeLabel);
+        atBashEncodeLabel.addMouseListener(encodingInfo);
+        rot13EncodingLabel.addMouseListener(encodingInfo);
+
+
+
         /**
          * ~~~~~~~~~~~~~~~~~~~~~~~ CHANGE LISTENERS ~~~~~~~~~~~~~~~~~~~~~~~
          */
@@ -351,7 +402,8 @@ public class Text2SpeechEditorView {
     private JFrame          frame;
     private JTextField      titleTextField;
     private JTextField      authorTextField;
-    private JLabel          volumeValue, pitchValue, rateValue;
+    private JLabel          volumeValue, pitchValue, rateValue, atBashEncodeLabel,
+    						rot13EncodingLabel;
     private Controller      controller;
     private JTextArea       textArea;
     private CommandsFactory commandFactory;

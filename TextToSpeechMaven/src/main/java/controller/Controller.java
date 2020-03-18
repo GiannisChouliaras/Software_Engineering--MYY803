@@ -2,7 +2,10 @@ package controller;
 
 import java.util.ArrayList;
 
+import encodingstrategies.EncodingStrategy;
+import encodingstrategies.StrategiesFactory;
 import model.Document;
+import model.Line;
 
 public class Controller {
 
@@ -12,6 +15,7 @@ public class Controller {
 	 */
 	public Controller() {
 		database = new ArrayList<Document>();
+		strategiesFactory = new StrategiesFactory();
 	}
 
 	/**
@@ -226,9 +230,34 @@ public void addToDatabase(Document document)
 	}
 
 
+	public void encodeAll(String author, String title, String option) {
+		EncodingStrategy encodingStrategy = strategiesFactory.createStrategy(option);
+		for (Document document : database) {
+			if (document.getAuthor().equals(author) && document.getTitle().equals(title)) {
+				document.tuneEncodingStrategy(encodingStrategy);
+				document.playEncodedContents();
+				break;
+			}
+		}
+	}
+
+	public void encodeLine(String author, String title, int line, String option) {
+		EncodingStrategy encodingStrategy = strategiesFactory.createStrategy(option);
+
+		for (Document document : database) {
+			if (document.getAuthor().equals(author) && document.getTitle().equals(title)) {
+				document.tuneEncodingStrategy(encodingStrategy);
+				document.playEncodedLine(line);
+				break;
+			}
+		}
+	}
+
+
 
 	/**
 	 * private fields.
 	 */
 	private ArrayList<Document> database;
+	private StrategiesFactory strategiesFactory;
 }

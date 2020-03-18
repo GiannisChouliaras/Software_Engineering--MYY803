@@ -51,7 +51,14 @@ public class Line {
      * Playing the encoded line.
      */
     public void playEncodedLine() {
-        //TODO fill your code HERE
+        String encode = "";
+        String playEncode = "";
+        for (String string : words) {
+            encode += string + "\n";
+        }
+        encode = encode.substring(0, encode.length() -1);
+        playEncode = encodingStrategy.encode(encode);
+        audioManager.play(playEncode);
     }
 
     /**
@@ -59,7 +66,7 @@ public class Line {
      * tune encoding Strategy (what strategy we will use for the encode(?))
      */
     public void tuneEncodingStrategy(EncodingStrategy encodingStrategy) {
-        //TODO fill your code HERE
+        this.encodingStrategy = encodingStrategy;
     }
     
     public String getLine()

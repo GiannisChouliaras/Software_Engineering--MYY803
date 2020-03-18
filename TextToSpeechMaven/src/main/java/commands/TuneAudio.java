@@ -5,14 +5,13 @@ import model.Document;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
-import java.awt.event.ActionEvent;
 
 public class TuneAudio implements ChangeListener {
 
 
     /**
      * Constructor.
-     * @param database
+     * @param controller
      * @param author
      * @param title
      * @param volumeSlider

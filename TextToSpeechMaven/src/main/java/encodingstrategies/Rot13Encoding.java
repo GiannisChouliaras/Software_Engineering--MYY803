@@ -10,7 +10,7 @@ public class Rot13Encoding extends TemplateEncoding {
      * Constructor of the Class Rot13Encoding
      */
     public Rot13Encoding() {
-        //TODO Fill your code HERE
+        super();
     }
 
     /**
@@ -19,16 +19,22 @@ public class Rot13Encoding extends TemplateEncoding {
      */
     @Override
     public String encode(String string) {
-        //TODO Fill your code HERE
-        return null;
+        String encode = super.encode(string);
+        return encode;
     }
 
+
     /**
+     * Taking a char and encode it with Rot13.
      * @param ch
-     * extends the method mapCharacter of the father class TemplateEncoding
+     * an abstract method for mapping Character.
+     * @return an encoded char.
      */
     public char mapCharacter(char ch) {
-        //TODO Fill your code HERE
-        return 'o';
+        if (ch >= 'a' && ch <= 'm') ch += 13;
+        else if (ch >= 'A' && ch <= 'M') ch += 13;
+        else if (ch >= 'n' && ch <= 'z') ch -= 13;
+        else if (ch >= 'N' && ch <= 'Z') ch -= 13;
+        return ch;
     }
 }
