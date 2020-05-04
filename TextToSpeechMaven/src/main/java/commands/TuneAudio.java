@@ -53,15 +53,16 @@ public class TuneAudio implements ChangeListener {
             }
         }
         else
-            JOptionPane.showMessageDialog(null, "no database with this author and title");
+            JOptionPane.showMessageDialog(null, "no database with" +
+                    " this author and title");
     }
 
 
     /**
      * Fields
      */
-    private Controller controller;
-    private JTextField author, title;
-    private JSlider volumeSlider, pitchSlider, rateSlider;
-    private JLabel volumeValue, pitchValue, rateValue;
+    private Controller  controller;
+    private JTextField  author, title;
+    private JSlider     volumeSlider, pitchSlider, rateSlider;
+    private JLabel      volumeValue, pitchValue, rateValue;
 }

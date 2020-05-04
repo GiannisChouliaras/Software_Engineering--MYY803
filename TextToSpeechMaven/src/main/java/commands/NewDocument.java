@@ -5,13 +5,12 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 import controller.Controller;
-import model.Document;
 
 public class NewDocument implements ActionListener {
 
 	/**
 	 * Constructor for the class.
-	 * @param database , the database from package controller.
+	 * @param 'database' , the database from package controller.
 	 * @param titleField
 	 * @param authorField
 	 */
@@ -55,10 +54,9 @@ public class NewDocument implements ActionListener {
 	/**
 	 * Private fields.
 	 */
-	private JTextField titleField;
-	private JTextField authorField;
-	private Controller controller;
-	private Document document;
-	private JTextArea textArea;
-	private JSlider volumeSlider, pitchSlider, rateSlider;
+	private JTextField	titleField;
+	private JTextField	authorField;
+	private Controller	controller;
+	private JTextArea	textArea;
+	private JSlider 	volumeSlider, pitchSlider, rateSlider;
 }

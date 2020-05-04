@@ -1,9 +1,6 @@
 package view;
 
-import commands.ActionListener;
-import commands.ChangeListener;
-import commands.CommandsFactory;
-import commands.EncodingInfo;
+import commands.*;
 import controller.Controller;
 
 import javax.swing.*;
@@ -11,21 +8,25 @@ import javax.swing.border.CompoundBorder;
 
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class Text2SpeechEditorView {
 
     /**
      * Create the application.
      */
-    public Text2SpeechEditorView() {
-        controller = new Controller();
+    public Text2SpeechEditorView()
+    {
+        controller    = new Controller();
+        replayManager = new ReplayManager(controller);
         initialize();
     }
 
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -42,7 +43,8 @@ public class Text2SpeechEditorView {
     /**
      * Initialize the contents of the frame.
      */
-    private void initialize() {
+    private void initialize()
+    {
         frame = new JFrame("Text To Speech Editor");
         frame.setBackground(new Color(42, 42, 43));
         frame.getContentPane().setBackground(new Color(42, 42, 43));
@@ -57,7 +59,8 @@ public class Text2SpeechEditorView {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    private void FormPanel() {
+    private void FormPanel()
+    {
         JPanel formPanel = new JPanel();
         formPanel.setBorder(new CompoundBorder());
         formPanel.setBackground(new Color(42, 42, 43));
@@ -157,6 +160,7 @@ public class Text2SpeechEditorView {
         bottomFormPanel.add(volumeSlider);
 
         rateSlider = new JSlider();
+        rateSlider.setBackground(new Color(42, 42, 43));
         rateSlider.setOrientation(SwingConstants.VERTICAL);
         rateSlider.setBounds(119, 65, 46, 145);
         rateSlider.setMinimum(0);
@@ -211,7 +215,8 @@ public class Text2SpeechEditorView {
         
     } // end of method FormPanel
 
-    private void TextArea() {
+    private void TextArea()
+    {
         JScrollPane scrollPane = new JScrollPane();
         frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
 
@@ -225,8 +230,8 @@ public class Text2SpeechEditorView {
         scrollPane.setViewportView(textArea);
     } // end of method TextArea
 
-    private void MenuBar() {
-
+    private void MenuBar()
+    {
         JMenuBar menuBar = new JMenuBar();
         menuBar.setBorder(null);
         menuBar.setBackground(new Color(255,255,255));
@@ -253,93 +258,120 @@ public class Text2SpeechEditorView {
         aboutMenu.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         menuBar.add(aboutMenu);
 
+        JMenu replayMenu = new JMenu("Replay");
+        aboutMenu.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+        menuBar.add(replayMenu);
 
         /**
          * ~~~~~~~~~~~~~~~~~~~~~~~ ADDING BUTTONS ~~~~~~~~~~~~~~~~~~~~~~~
          */
-        JMenuItem newDocumentMenuItem = new JMenuItem("New Document");
+        newDocumentMenuItem = new JMenuItem("New Document");
         newDocumentMenuItem.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         fileMenu.add(newDocumentMenuItem);
+        KeyStroke keyStrokeToNew = KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_DOWN_MASK);
+        newDocumentMenuItem.setAccelerator(keyStrokeToNew);
 
-        JMenuItem openDocumentMenuItem = new JMenuItem("Open Document");
+        openDocumentMenuItem = new JMenuItem("Open Document");
         openDocumentMenuItem.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         fileMenu.add(openDocumentMenuItem);
+        KeyStroke keyStrokeToOpen = KeyStroke.getKeyStroke(KeyEvent.VK_O, KeyEvent.CTRL_DOWN_MASK);
+        openDocumentMenuItem.setAccelerator(keyStrokeToOpen);
 
-        JMenuItem saveDocumentMenuItem = new JMenuItem("Save Document");
+        saveDocumentMenuItem = new JMenuItem("Save Document");
         saveDocumentMenuItem.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         fileMenu.add(saveDocumentMenuItem);
 
         JSeparator separator = new JSeparator();
         fileMenu.add(separator);
 
-        JMenuItem exitMenuItem = new JMenuItem("Exit");
+        exitMenuItem = new JMenuItem("Exit");
         exitMenuItem.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         fileMenu.add(exitMenuItem);
+        KeyStroke keyStrokeToExit = KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_DOWN_MASK);
+        exitMenuItem.setAccelerator(keyStrokeToExit);
+        
 
         // ~~~~~~~~~~ EDIT ~~~~~~~~~~~~~~~~~~~
-        JMenuItem editAuthorItem = new JMenuItem("Edit Author");
+        editAuthorItem = new JMenuItem("Edit Author");
         editAuthorItem.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         editMenu.add(editAuthorItem);
 
-        JMenuItem editTitleItem = new JMenuItem("Edit Title");
+        editTitleItem = new JMenuItem("Edit Title");
         editAuthorItem.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         editMenu.add(editTitleItem);
-
+        
         JMenuItem editTextItem = new JMenuItem("Edit Text");
         editTextItem.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         editMenu.add(editTextItem);
+        KeyStroke keyStrokeToEdit = KeyStroke.getKeyStroke(KeyEvent.VK_S, 
+        		KeyEvent.CTRL_DOWN_MASK);
+        editTextItem.setAccelerator(keyStrokeToEdit);
+        
 
         // ~~~~~~~~~~~~~ TTS ~~~~~~~~~~~~~~~~~~
-        JMenuItem ttsAllItem = new JMenuItem("Trasform All");
+        ttsAllItem = new JMenuItem("Trasform All");
         ttsAllItem.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         ttsMenu.add(ttsAllItem);
 
-        JMenuItem ttsLineItem = new JMenuItem("Transform Line");
+        ttsLineItem = new JMenuItem("Transform Line");
         ttsLineItem.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         ttsMenu.add(ttsLineItem);
+        KeyStroke keyStrokeToLine = KeyStroke.getKeyStroke(KeyEvent.VK_L, 
+        		KeyEvent.CTRL_DOWN_MASK);
+        ttsLineItem.setAccelerator(keyStrokeToLine);
 
-        JMenuItem ttsRevAllItem = new JMenuItem("Transform All Reverse");
+        ttsRevAllItem = new JMenuItem("Transform All Reverse");
         ttsRevAllItem.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         ttsMenu.add(ttsRevAllItem);
 
-        JMenuItem ttsRevLineItem = new JMenuItem("Transform Line Reverse");
+        ttsRevLineItem = new JMenuItem("Transform Line Reverse");
         ttsRevLineItem.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         ttsMenu.add(ttsRevLineItem);
 
         // ~~~~~~~~~~~~~ ENCODE ~~~~~~~~~~~~~~~~~~
-        JMenuItem atBashEncoding = new JMenuItem("AtBash Encode All");
+        atBashEncoding = new JMenuItem("AtBash Encode All");
         atBashEncoding.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         encodeMenu.add(atBashEncoding);
 
-        JMenuItem atBashEncodingLine = new JMenuItem("AtBash Encode Line");
+        atBashEncodingLine = new JMenuItem("AtBash Encode Line");
         atBashEncodingLine.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         encodeMenu.add(atBashEncodingLine);
 
         encodeMenu.add(new JSeparator());
 
-        JMenuItem rot13Encoding = new JMenuItem("Rot13 Encode All");
+        rot13Encoding = new JMenuItem("Rot13 Encode All");
         rot13Encoding.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         encodeMenu.add(rot13Encoding);
 
-        JMenuItem rot13EncodingLine = new JMenuItem("Rot13 Encode Line");
+        rot13EncodingLine = new JMenuItem("Rot13 Encode Line");
         rot13EncodingLine.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         encodeMenu.add(rot13EncodingLine);
-
-
 
         // ~~~~~~~~~~~~~ ABOUT ~~~~~~~~~~~~~~~~~~
         JMenuItem infoItem = new JMenuItem("Document Info");
         infoItem.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
         aboutMenu.add(infoItem);
 
+        // ~~~~~~~~~~~~~ REPLAY ~~~~~~~~~~~~~~~~~~
+        replayItem = new JMenuItem("Replay Commands");
+        infoItem.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+        replayMenu.add(replayItem);
+        KeyStroke keyStrokeToReplay = KeyStroke.getKeyStroke(KeyEvent.VK_R, KeyEvent.CTRL_DOWN_MASK);
+        replayItem.setAccelerator(keyStrokeToReplay);
+
+        JMenuItem clearReplayItem = new JMenuItem("Clear Replay");
+        clearReplayItem.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+        replayMenu.add(clearReplayItem);
 
         /**
          * ~~~~~~~~~~~~~~~~~~~~~~~ COMMAND FACTORY ~~~~~~~~~~~~~~~~~~~~~~~
          */
-        commandFactory = new CommandsFactory(controller, authorTextField, titleTextField, textArea,
-                editAuthorItem, editTitleItem, ttsLineItem, ttsRevLineItem, ttsRevAllItem,
-                volumeSlider,pitchSlider,rateSlider, volumeValue, pitchValue, rateValue,
-                atBashEncoding,atBashEncodingLine,rot13Encoding,rot13EncodingLine);
+
+        commandFactory = new CommandsFactory(controller, replayManager, authorTextField,
+                titleTextField, textArea, editAuthorItem, editTitleItem, ttsLineItem,
+                ttsRevLineItem, ttsRevAllItem, volumeSlider,pitchSlider,rateSlider,
+                volumeValue, pitchValue, rateValue, atBashEncoding,atBashEncodingLine,
+                rot13Encoding,rot13EncodingLine, replayItem);
 
         /**
          * ~~~~~~~~~~~~~~~~~~~~~~~ ACTIONS LISTENERS ~~~~~~~~~~~~~~~~~~~~~~~
@@ -363,6 +395,7 @@ public class Text2SpeechEditorView {
         saveDocumentMenuItem.addActionListener(saveDocument);
 
         ActionListener documentToSpeech = commandFactory.createCommand("DocumentToSpeech");
+        ttsAllItem.addActionListener(documentToSpeech);
         textToSpeechButton.addActionListener(documentToSpeech);
         ttsRevAllItem.addActionListener(documentToSpeech);
 
@@ -373,6 +406,10 @@ public class Text2SpeechEditorView {
 
         ActionListener infoListener = commandFactory.createCommand("InfoListener");
         infoItem.addActionListener(infoListener);
+
+        ActionListener replayListener = commandFactory.createCommand("ReplayCommand");
+        replayItem.addActionListener(replayListener);
+        clearReplayItem.addActionListener(replayListener);
 
         ActionListener tuneEncoding = commandFactory.createCommand("TuneEncoding");
         atBashEncoding.addActionListener(tuneEncoding);
@@ -400,6 +437,7 @@ public class Text2SpeechEditorView {
      * Fields
      */
     private JFrame          frame;
+    private ReplayManager   replayManager;
     private JTextField      titleTextField;
     private JTextField      authorTextField;
     private JLabel          volumeValue, pitchValue, rateValue, atBashEncodeLabel,
@@ -409,4 +447,10 @@ public class Text2SpeechEditorView {
     private CommandsFactory commandFactory;
     private JButton         textToSpeechButton, lineToSpeechButton;
     private JSlider         pitchSlider, rateSlider, volumeSlider;
+    private JMenuItem       atBashEncoding, atBashEncodingLine, newDocumentMenuItem,
+                            rot13Encoding, rot13EncodingLine, editAuthorItem,
+                            ttsRevLineItem, exitMenuItem, ttsRevAllItem,
+                            saveDocumentMenuItem, ttsLineItem, openDocumentMenuItem,
+                            editTitleItem, ttsAllItem, replayItem;
+
 } //end of class Text2SpeechEditorView

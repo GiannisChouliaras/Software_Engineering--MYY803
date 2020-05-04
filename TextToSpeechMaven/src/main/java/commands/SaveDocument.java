@@ -10,7 +10,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import controller.Controller;
-import model.Document;
 import view.FileTypeFilter;
 
 public class SaveDocument implements ActionListener {
@@ -22,7 +21,8 @@ public class SaveDocument implements ActionListener {
 	 * @param title
 	 * @param textArea
 	 */
-  public SaveDocument(Controller controller, JTextField author, JTextField title, JTextArea textArea)
+  public SaveDocument(Controller controller, JTextField author, JTextField title,
+					  JTextArea textArea)
   {
 	  this.author     = author;
 	  this.title      = title;

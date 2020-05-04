@@ -39,8 +39,7 @@ public class EditDocument implements ActionListener {
     	String element = "";
     	String authorString = author.getText();
         String titleString = title.getText();
-        if (controller.containsDocument(authorString, titleString))
-        {
+        if (controller.containsDocument(authorString, titleString)) {
         	if (actionEvent.getSource() == editAuthorItem) {
                 element = JOptionPane.showInputDialog(null, "give new Author name:");
                 choice = 0;

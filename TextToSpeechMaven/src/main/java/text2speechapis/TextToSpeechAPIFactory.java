@@ -9,16 +9,15 @@ public class TextToSpeechAPIFactory {
     /**
      * Constructor for the class TextToSpeechAPIFactory
      */
-    public TextToSpeechAPIFactory() {
-        //TODO Fill your code HERE
-    }
+    public TextToSpeechAPIFactory() {}
 
     /**
      * @param string
      * method for creating a TTSAPI
      * @returns TextToSpeechAPI
      */
-    public TextToSpeechAPI createTTSAPI(String string) {
+    public TextToSpeechAPI createTTSAPI(String string)
+    {
         if (string.equals("FreeTTSAdapter")) {
             return new FreeTTSAdapter();
         } else if (string.equals("FakeTextToSpeechAPI")) {

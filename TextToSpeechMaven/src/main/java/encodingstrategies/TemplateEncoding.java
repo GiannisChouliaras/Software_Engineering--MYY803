@@ -5,16 +5,15 @@ public abstract class TemplateEncoding implements EncodingStrategy {
     /**
      * Constructor for the class TemplateEncoding
      */
-    public TemplateEncoding(){
-        //TODO Fill your code HERE if needed
-    }
+    public TemplateEncoding(){}
 
     /**
      * @param string
      * implement the encode method of the interface, kids can implement it.
      */
     @Override
-    public String encode(String string) {
+    public String encode(String string)
+    {
         String encoded ="";
         char ch;
         for (int i = 0; i < string.length(); i++) {

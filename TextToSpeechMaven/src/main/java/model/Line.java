@@ -18,9 +18,7 @@ public class Line {
         this.line    = line;
         ttsFactory   = new TextToSpeechAPIFactory();
         audioManager = ttsFactory.createTTSAPI("FreeTTSAdapter");
-
         words = new ArrayList<String>();
-
         //split here the words.
         String[] myWords = line.split(" ");
         for (String word : myWords) {
@@ -50,7 +48,8 @@ public class Line {
     /**
      * Playing the encoded line.
      */
-    public void playEncodedLine() {
+    public void playEncodedLine()
+    {
         String encode = "";
         String playEncode = "";
         for (String string : words) {
@@ -93,10 +92,10 @@ public class Line {
     }
 
     /** private Fields */
-    private EncodingStrategy encodingStrategy;
-    private TextToSpeechAPI audioManager;
-    private TextToSpeechAPIFactory ttsFactory;
-    private String line;
-    ArrayList<String> words = new ArrayList<String>();
+    private EncodingStrategy        encodingStrategy;
+    private TextToSpeechAPI         audioManager;
+    private TextToSpeechAPIFactory  ttsFactory;
+    private String                  line;
+    private ArrayList<String>       words;
 
 } // end of class Line

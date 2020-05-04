@@ -3,22 +3,17 @@ package encodingstrategies;
 public class StrategiesFactory {
 
     /**
-     * A strategies factory. no fields.
-     */
-
-    /**
      * Constructor of the class StrategiesFactory
      */
-    public StrategiesFactory() {
-        //TODO Fill your code HERE
-    }
+    public StrategiesFactory() {}
 
     /**
      * @param string
-     * a method were we create a strategy by giving the name(?) and
+     * a method were we create a strategy by giving the name and
      * @return an EncodingStrategy
      */
-    public EncodingStrategy createStrategy(String string) {
+    public EncodingStrategy createStrategy(String string)
+    {
         if (string.equals("AtBashEncoding")) {
             return new AtBashEncoding();
         }

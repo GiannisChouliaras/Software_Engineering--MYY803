@@ -15,9 +15,11 @@ public class LineToSpeech implements ActionListener {
      * @param titleField
      * @param textArea
      */
-    public LineToSpeech(Controller controller, JTextField authorField, JTextField titleField,
-                        JTextArea textArea, JMenuItem ttsLineItem, JMenuItem ttsReverseLineItem)
+    public LineToSpeech(Controller controller, ReplayManager replayManager, JTextField authorField,
+                        JTextField titleField, JTextArea textArea, JMenuItem ttsLineItem,
+                        JMenuItem ttsReverseLineItem)
     {
+        this.replayManager      = replayManager;
         this.controller         = controller;
         this.authorField        = authorField;
         this.textArea           = textArea;
@@ -38,15 +40,18 @@ public class LineToSpeech implements ActionListener {
 
         if (controller.containsDocument(author, title)) {
             Document document = controller.getDocument(author, title);
+            String text = document.getText();
             if (actionEvent.getSource() == ttsLineItem) {
                 String line = JOptionPane.showInputDialog("Give me the line you want: ");
                 int lineNumber = Integer.parseInt(line);
-                document.playLine(lineNumber-1);
+                document.playLine(lineNumber - 1);
+                replayManager.addToList("LineToSpeech", author, title, text, lineNumber-1);
             }
             else if (actionEvent.getSource() == ttsReverseLineItem) {
                 String line = JOptionPane.showInputDialog("Give me the line you want: ");
                 int lineNumber = Integer.parseInt(line);
                 document.playReversedLine(lineNumber - 1);
+                replayManager.addToList("RevLineToSpeech", author, title, text, lineNumber-1);
             }
             else {
                 String thisLine = textArea.getSelectedText();
@@ -62,9 +67,10 @@ public class LineToSpeech implements ActionListener {
     /**
      * Private Fields
      */
-    private JTextArea  textArea;
-    private JTextField authorField;
-    private JTextField titleField;
-    private Controller controller;
-    private JMenuItem  ttsLineItem, ttsReverseLineItem;
+    private ReplayManager   replayManager;
+    private JTextArea       textArea;
+    private JTextField      authorField;
+    private JTextField      titleField;
+    private Controller      controller;
+    private JMenuItem       ttsLineItem, ttsReverseLineItem;
 }

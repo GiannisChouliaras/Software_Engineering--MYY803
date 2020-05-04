@@ -29,7 +29,7 @@ public class Document {
 
 		ttsFactory = new TextToSpeechAPIFactory();
 		audioManager = ttsFactory.createTTSAPI("FreeTTSAdapter");
-	} //end of Constructor
+	} // end of Constructor
 
 	/**
 	 * constructor 2 for open
@@ -48,7 +48,7 @@ public class Document {
 		lines = new ArrayList<Line>();
 		ttsFactory = new TextToSpeechAPIFactory();
 		audioManager = ttsFactory.createTTSAPI("FreeTTSAdapter");
-	} //end constructor 2
+	} // end constructor 2
 	
 	/**
 	 * playing the Contents of the document.
@@ -61,7 +61,7 @@ public class Document {
 		}
 		audioLines = audioLines.substring(0, audioLines.length() -1);
 		audioManager.play(audioLines);
-	}
+	} // end playContents
 
 	/**
 	 * playing the contents of the document in Reverse
@@ -71,12 +71,13 @@ public class Document {
 		for (int i = lines.size() - 1; i >= 0; i--) {
 			lines.get(i).playReverseLine();
 		}
-	}
+	} // end playReverseContents
 
 	/**
 	 * playing the Encoded contents of a document.
 	 */
-	public void playEncodedContents() {
+	public void playEncodedContents()
+	{
 		String encodeContent = "";
 		for (Line line : lines) {
 			encodeContent += line.getLine() + "\n";
@@ -84,7 +85,7 @@ public class Document {
 		encodeContent = encodeContent.substring(0, encodeContent.length() -1);
 		String encoded = encodingStrategy.encode(encodeContent);
 		audioManager.play(encoded);
-	}
+	} // end playEncodedContents
 
 	/**
 	 * @param line
@@ -94,9 +95,10 @@ public class Document {
 	{
 		Line myLine = lines.get(line);
 		myLine.playLine();
-	}
+	} // end playLine
 
-	public void playLineString(String s) {
+	public void playLineString(String s)
+	{
 		audioManager.play(s);
 	}
 
@@ -104,7 +106,8 @@ public class Document {
 	 * @param line
 	 * play a single line but in Reverse.
 	 */
-	public void playReversedLine(int line) {
+	public void playReversedLine(int line)
+	{
 		Line thisLine = lines.get(line);
 		thisLine.playReverseLine();
 	}
@@ -113,7 +116,8 @@ public class Document {
 	 * @param line
 	 * play an encoded single line of the contents
 	 */
-	public void playEncodedLine(int line) {
+	public void playEncodedLine(int line)
+	{
 		Line myLine = lines.get(line);
 		myLine.tuneEncodingStrategy(encodingStrategy);
 
@@ -223,8 +227,11 @@ public class Document {
 	}
 
 	public int getPitch() { return audioManager.getPitch();}
+
 	public int getRate() { return audioManager.getRate();}
+
 	public int getVolume() { return audioManager.getVolume();}
+
 	public ArrayList<Line> getArrayList() {return lines;}
 
 	/**
@@ -246,24 +253,23 @@ public class Document {
 	/**
 	 * @return a String so we can write it to txt file.
 	 */
-	public String infoToWrite() {
+	public String infoToWrite()
+	{
 		return authorString + "\n" + titleString + "\n" + dateString + "\n" + lastModifiedString + "\n";
 	}
 
-	public String infoButton() {
+	public String infoButton()
+	{
 		return "Title: " + titleString + "\nAuthor: " + authorString + "\nCreation Date: " + dateString
 				+ "\nLast Modified Date: " + lastModifiedString;
 	}
 
 
 	/** private Fields */
-	private EncodingStrategy encodingStrategy;
-	private TextToSpeechAPI audioManager;
-	private TextToSpeechAPIFactory ttsFactory;
-	private String authorString;
-	private String titleString;
-	private String dateString;
-	private String lastModifiedString;
-	private ArrayList<Line> lines;
+	private EncodingStrategy		encodingStrategy;
+	private TextToSpeechAPI			audioManager;
+	private TextToSpeechAPIFactory	ttsFactory;
+	private ArrayList<Line> 		lines;
+	private String	authorString, titleString, dateString, lastModifiedString;
 
 } //end of class Document

@@ -49,7 +49,7 @@ public class OpenDocument implements ActionListener {
 	 */
 	@Override
     public void actionPerformed(ActionEvent actionEvent)
-	{	//open the file and read content.
+	{
     	JFileChooser fs = new JFileChooser(new File("C:\\"));
     	fs.setDialogTitle("Open a File");
     	fs.setFileFilter(new FileTypeFilter(".tts", "TTS File"));
@@ -124,7 +124,6 @@ public class OpenDocument implements ActionListener {
 			rateValue.setText(info.get(5));
 		}
 		else { // database does not contain a document like this.
-
 			controller.secondNewDocument(author, title, date, modDate, text);
 			authorString.setText(author);
 			titleString.setText(title);
@@ -141,10 +140,10 @@ public class OpenDocument implements ActionListener {
 	/**
 	 * Private fields for the class.
 	 */
-	private JTextField authorString;
-	private JTextField titleString;
-	private JTextArea textArea;
-	private Controller controller;
-	private JSlider volumeSlider, rateSlider, pitchSlider;
-	private JLabel volumeValue, rateValue, pitchValue;
+	private JTextField	authorString;
+	private JTextField	titleString;
+	private JTextArea	textArea;
+	private Controller	controller;
+	private JSlider 	volumeSlider, rateSlider, pitchSlider;
+	private JLabel		volumeValue, rateValue, pitchValue;
 } // end of class

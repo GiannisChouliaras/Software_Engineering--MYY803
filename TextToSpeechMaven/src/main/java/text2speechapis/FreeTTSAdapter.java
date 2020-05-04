@@ -5,12 +5,10 @@ import com.sun.speech.freetts.VoiceManager;
 
 public class FreeTTSAdapter implements TextToSpeechAPI {
 
-    /**
-     * Constructor for the Class FreeTTSAdapter
-     */
     public FreeTTSAdapter()
     {
-        System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
+        System.setProperty("freetts.voices",
+                "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
         this.voice = voiceManager.getInstance().getVoice("kevin16");
         this.voice.allocate();
     }
@@ -35,7 +33,6 @@ public class FreeTTSAdapter implements TextToSpeechAPI {
     @Override
     public void setVolume(int volume)
     {
-
         if (voice != null) {
             //voice.allocate();
             try {

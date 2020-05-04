@@ -18,7 +18,8 @@ public class Rot13Encoding extends TemplateEncoding {
      * overrides the method encode
      */
     @Override
-    public String encode(String string) {
+    public String encode(String string)
+    {
         String encode = super.encode(string);
         return encode;
     }
@@ -30,7 +31,8 @@ public class Rot13Encoding extends TemplateEncoding {
      * an abstract method for mapping Character.
      * @return an encoded char.
      */
-    public char mapCharacter(char ch) {
+    public char mapCharacter(char ch)
+    {
         if (ch >= 'a' && ch <= 'm') ch += 13;
         else if (ch >= 'A' && ch <= 'M') ch += 13;
         else if (ch >= 'n' && ch <= 'z') ch -= 13;

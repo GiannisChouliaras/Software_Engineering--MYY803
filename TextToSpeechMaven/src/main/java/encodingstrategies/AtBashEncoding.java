@@ -18,7 +18,8 @@ public class AtBashEncoding extends TemplateEncoding {
      * overrides the method encode
      */
     @Override
-    public String encode(String string) {
+    public String encode(String string)
+    {
         String encode = super.encode(string);
         return encode;
     }
@@ -29,7 +30,8 @@ public class AtBashEncoding extends TemplateEncoding {
      * an abstract method for mapping Character.
      * @return the encoded char.
      */
-    public char mapCharacter(char ch) {
+    public char mapCharacter(char ch)
+    {
         if (ch >= 'A' && ch <= 'Z') {
             int i = ch;
             i = ch - 'A';

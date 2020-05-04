@@ -14,15 +14,16 @@ public class InfoListener implements ActionListener {
      * @param author
      * @param title
      */
-    public InfoListener(Controller controller, JTextField author, JTextField title) {
+    public InfoListener(Controller controller, JTextField author, JTextField title)
+    {
         this.controller = controller;
         this.author   	= author;
         this.title    	= title;
     }
 
-
     @Override
-    public void actionPerformed(ActionEvent actionEvent) {
+    public void actionPerformed(ActionEvent actionEvent)
+    {
         if (controller.containsDocument(author.getText(), title.getText())) {
             JOptionPane.showMessageDialog(null, 
             		controller.getDocument(author.getText(), title.getText()).infoButton());

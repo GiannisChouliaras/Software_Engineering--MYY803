@@ -1,9 +1,6 @@
 package commands;
 
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.event.MouseInputListener;
@@ -22,22 +19,17 @@ public class EncodingInfo implements MouseInputListener {
 
 
     @Override
-    public void mouseClicked(MouseEvent e) {
-        // TODO Auto-generated method stub
+    public void mouseClicked(MouseEvent e) {}
 
-    }
     @Override
-    public void mousePressed(MouseEvent e) {
-        // TODO Auto-generated method stub
+    public void mousePressed(MouseEvent e) {}
 
-    }
     @Override
-    public void mouseReleased(MouseEvent e) {
-        // TODO Auto-generated method stub
+    public void mouseReleased(MouseEvent e) {}
 
-    }
     @Override
-    public void mouseEntered(MouseEvent e) {
+    public void mouseEntered(MouseEvent e)
+    {
         if (e.getSource() == atBashEncodeLabel) {
             String textString = textArea.getText();
             originalText = textString;
@@ -51,34 +43,29 @@ public class EncodingInfo implements MouseInputListener {
             String encoded = encodingStrategy.encode(originalText);
             textArea.setText(encoded);
         }
-
-
     }
+
     @Override
-    public void mouseExited(MouseEvent e) {
+    public void mouseExited(MouseEvent e)
+    {
         if (e.getSource() == atBashEncodeLabel) {
             textArea.setText(originalText);
         }
         else {
             textArea.setText(originalText);
         }
-
     }
+
     @Override
-    public void mouseDragged(MouseEvent e) {
-        // TODO Auto-generated method stub
+    public void mouseDragged(MouseEvent e) {}
 
-    }
     @Override
-    public void mouseMoved(MouseEvent e) {
-        // TODO Auto-generated method stub
+    public void mouseMoved(MouseEvent e) {}
 
-    }
-
-    private JTextArea textArea;
-    private EncodingStrategy encodingStrategy;
-    private StrategiesFactory strategiesFactory;
-    private String originalText;
-    private JLabel atBashEncodeLabel;
+    private JTextArea           textArea;
+    private EncodingStrategy    encodingStrategy;
+    private StrategiesFactory   strategiesFactory;
+    private String              originalText;
+    private JLabel              atBashEncodeLabel;
 
 }

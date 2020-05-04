@@ -33,33 +33,6 @@ public class Controller {
 		System.out.println("No document with this Author and title");
 		return null;
 	}
-
-	/**
-	 * Possibly we will delete this.
-	 * @param document
-	 
-public void addToDatabase(Document document)
-	{
-		for (Document document2 : database) {
-			if (document.equals(document2)) {
-				System.out.println("Database contains this Document");
-				return;
-			}
-		}
-		database.add(document);
-	} */
-
-	/*public void removeDocument(String author, String title)
-	{
-		for (Document document : database) {
-			if (document.getAuthor().equals(author) && document.getTitle().equals(title)) {
-				database.remove(document);
-				return;
-			}
-		}
-		System.out.println("couldn't find a document to delete! DATABASE, LINE 70");
-	}*/
-	
 	
 	/**
 	 * Checks if database contains a Document with this author 
@@ -101,14 +74,14 @@ public void addToDatabase(Document document)
 	 * Second newDocument means when you click the button open, it will check if database
 	 * contains a document with this author and title. If not, it will read from the file
 	 * the first 4 lines, take the data and create a new Document.
-	 * From here we can test the open button (?)
 	 * @param author
 	 * @param title
 	 * @param date
 	 * @param modifiedDate
 	 * @param fullTextString
 	 */
-	public void secondNewDocument(String author, String title, String date, String modifiedDate, String fullTextString)
+	public void secondNewDocument(String author, String title, String date,
+								  String modifiedDate, String fullTextString)
 	{
 		Document document = new Document(author,title,date,modifiedDate);
 		document.setListFromText(fullTextString);
@@ -187,7 +160,8 @@ public void addToDatabase(Document document)
 	 * @param option
 	 * @return an ArrayList<String> for the info's to print.
 	 */
-	public ArrayList<String> getInfoToOpen(String author, String title, String text, int option) {
+	public ArrayList<String> getInfoToOpen(String author, String title, String text, int option)
+	{
 		for (Document document : database) {
 			ArrayList<String> info = new ArrayList<String>();
 			if (document.getAuthor().equals(author) && document.getTitle().equals(title)) {
@@ -216,7 +190,8 @@ public void addToDatabase(Document document)
 	 * @return the info of the Document so we will write the info in first 4 lines.
 	 * we will never see these details.
 	 */
-	public String saveToFile(String author, String title, String content) {
+	public String saveToFile(String author, String title, String content)
+	{
 		Document document = null;
 		for (Document doc : database) {
 			if (doc.getAuthor().equals(author) && doc.getTitle().equals(title)) {
@@ -229,8 +204,15 @@ public void addToDatabase(Document document)
 		return document.infoToWrite();
 	}
 
-
-	public void encodeAll(String author, String title, String option) {
+	/**
+	 * Take the Author, title and an option.
+	 * Encode all text with atBash or Rot13
+	 * @param author
+	 * @param title
+	 * @param option
+	 */
+	public void encodeAll(String author, String title, String option)
+	{
 		EncodingStrategy encodingStrategy = strategiesFactory.createStrategy(option);
 		for (Document document : database) {
 			if (document.getAuthor().equals(author) && document.getTitle().equals(title)) {
@@ -241,7 +223,16 @@ public void addToDatabase(Document document)
 		}
 	}
 
-	public void encodeLine(String author, String title, int line, String option) {
+	/**
+	 * Take the Author, title and an option.
+	 * Encode one Line with atBash or Rot13
+	 * @param author
+	 * @param title
+	 * @param line
+	 * @param option
+	 */
+	public void encodeLine(String author, String title, int line, String option)
+	{
 		EncodingStrategy encodingStrategy = strategiesFactory.createStrategy(option);
 
 		for (Document document : database) {
@@ -259,5 +250,5 @@ public void addToDatabase(Document document)
 	 * private fields.
 	 */
 	private ArrayList<Document> database;
-	private StrategiesFactory strategiesFactory;
+	private StrategiesFactory 	strategiesFactory;
 }
