@@ -26,7 +26,7 @@ public class FreeTTSAdapter implements TextToSpeechAPI {
             }
         }
         else {
-            throw new IllegalStateException("Cannot field voice: " + voice);
+            throw new IllegalStateException("Cannot field voice");
         }
     }
 
@@ -43,7 +43,7 @@ public class FreeTTSAdapter implements TextToSpeechAPI {
             }
         }
         else {
-            throw new IllegalStateException("Cannot field voice: " + voice);
+            throw new IllegalStateException("Cannot field voice");
         }
     }
 
@@ -59,7 +59,7 @@ public class FreeTTSAdapter implements TextToSpeechAPI {
             }
         }
         else {
-            throw new IllegalStateException("Cannot field voice: " + voice);
+            throw new IllegalStateException("Cannot field voice");
         }
     }
 
@@ -69,19 +69,22 @@ public class FreeTTSAdapter implements TextToSpeechAPI {
         if (voice != null) {
             //voice.allocate();
             try {
-                voice.setRate((float)rate);
+                voice.setRate(rate);
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
         }
         else {
-            throw new IllegalStateException("Cannot field voice: " + voice);
+            throw new IllegalStateException("Cannot field voice");
         }
     }
 
-    public int getVolume() { return (int) voice.getVolume() * 100;}
+    public int getVolume() { return (int) (voice.getVolume() * 100);}
     public int getPitch() { return (int) voice.getPitch(); }
-    public int getRate() { return (int) voice.getRate(); }
+    public int getRate() { return (int) voice.getRate();}
+
+    // no words..
+    public String getString() {return "nothing";}
 
     /**
      * Fields

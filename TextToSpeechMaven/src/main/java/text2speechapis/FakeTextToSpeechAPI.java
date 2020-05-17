@@ -1,53 +1,100 @@
 package text2speechapis;
 
-public class FakeTextToSpeechAPI implements TextToSpeechAPI {
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
 
-    /**
-     * what exactly is this class ? Fake Text to Speech ?
-     * No fields
-     */
+public class FakeTextToSpeechAPI implements TextToSpeechAPI {
 
     /**
      * Constructor of the class FakeTextToSpeechAPI
      */
     public FakeTextToSpeechAPI() {
-        //TODO Fill your code HERE
+        System.setProperty("freetts.voices",
+                "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
+        this.voice = voiceManager.getInstance().getVoice("kevin16");
+        this.voice.allocate();
     }
 
     /* Overriding the methods of TextToSpeechAPI */
 
     @Override
     public void play(String string) {
-        //TODO Fill your code HERE
+        if (voice != null) {
+            try {
+                myString = string;
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
+        else {
+            throw new IllegalStateException("Cannot field voice");
+        }
     }
+
+    public String getString() {
+        return myString;
+    }
+
 
     @Override
     public void setVolume(int volume) {
-        //TODO Fill your code HERE
+        if (voice != null) {
+            try {
+                float number = (float) volume / (float) 100;
+                voice.setVolume(number);
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
+        else {
+            throw new IllegalStateException("Cannot field voice");
+        }
     }
 
     @Override
     public void setPitch(int pitch) {
-        //TODO Fill your code HERE
+        if (voice != null) {
+            try {
+                voice.setPitch((float)pitch);
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
+        else {
+            throw new IllegalStateException("Cannot field voice");
+        }
     }
 
     @Override
     public void setRate(int rate) {
-        //TODO Fill your code HERE
+        if (voice != null) {
+            try {
+                voice.setRate((float)rate);
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
+        else {
+            throw new IllegalStateException("Cannot field voice");
+        }
     }
 
     @Override
     public int getRate() {
-        return 0;
+        return (int) voice.getRate();
     }
 
     @Override
     public int getPitch() {
-        return 0;
+        return (int) voice.getPitch();
     }
 
     @Override
     public int getVolume() {
-        return 0;
+        return (int) (voice.getVolume() * 100);
     }
+
+    private VoiceManager voiceManager;
+    private Voice voice;
+    private String myString;
 }

@@ -80,7 +80,6 @@ class ControllerTest {
 		//database must contain this document.
 		assertTrue(controller.containsDocument("Ioannis", "Astronomy"));
 		assertEquals(test, controller.getDocument("Ioannis", "Astronomy").getText());
-		
 	}
 
 	@Test

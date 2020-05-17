@@ -37,4 +37,6 @@ public interface TextToSpeechAPI {
     public int getRate();
     public int getPitch();
     public int getVolume();
+
+    public String getString();
 }

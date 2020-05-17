@@ -29,6 +29,7 @@ public class Document {
 
 		ttsFactory = new TextToSpeechAPIFactory();
 		audioManager = ttsFactory.createTTSAPI("FreeTTSAdapter");
+		fakeAudioManager = ttsFactory.createTTSAPI("FakeTextToSpeechAPI");
 	} // end of Constructor
 
 	/**
@@ -63,6 +64,16 @@ public class Document {
 		audioManager.play(audioLines);
 	} // end playContents
 
+	public String playContentsForTest()
+	{
+		String audioLines = "";
+		for (Line line: lines) {
+			audioLines += line.getLine() + "\n";
+		}
+		audioLines = audioLines.substring(0, audioLines.length() -1);
+		fakeAudioManager.play(audioLines);
+		return fakeAudioManager.getString();
+	}
 	/**
 	 * playing the contents of the document in Reverse
 	 */
@@ -86,6 +97,17 @@ public class Document {
 		String encoded = encodingStrategy.encode(encodeContent);
 		audioManager.play(encoded);
 	} // end playEncodedContents
+
+	public String playEncodedContentsTest() {
+		String encodeContent = "";
+		for (Line line : lines) {
+			encodeContent += line.getLine() + "\n";
+		}
+		encodeContent = encodeContent.substring(0, encodeContent.length() -1);
+		String encoded = encodingStrategy.encode(encodeContent);
+		fakeAudioManager.play(encoded);
+		return fakeAudioManager.getString();
+	}
 
 	/**
 	 * @param line
@@ -267,7 +289,7 @@ public class Document {
 
 	/** private Fields */
 	private EncodingStrategy		encodingStrategy;
-	private TextToSpeechAPI			audioManager;
+	private TextToSpeechAPI			audioManager, fakeAudioManager;
 	private TextToSpeechAPIFactory	ttsFactory;
 	private ArrayList<Line> 		lines;
 	private String	authorString, titleString, dateString, lastModifiedString;
