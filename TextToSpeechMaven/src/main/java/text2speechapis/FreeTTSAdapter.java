@@ -86,9 +86,7 @@ public class FreeTTSAdapter implements TextToSpeechAPI {
     // no words..
     public String getString() {return "nothing";}
 
-    /**
-     * Fields
-     */
+
     private VoiceManager voiceManager;
     private Voice voice;
 }

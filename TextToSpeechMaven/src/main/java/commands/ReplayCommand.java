@@ -5,9 +5,6 @@ import java.awt.event.ActionEvent;
 
 public class ReplayCommand implements ActionListener {
 
-    /**
-     * Constructor of the class ReplayCommand
-     */
     public ReplayCommand(ReplayManager replayManager, JMenuItem replayItem)
     {
         this.replayManager = replayManager;
@@ -29,7 +26,6 @@ public class ReplayCommand implements ActionListener {
         }
     }
 
-    /** Fields */
     private ReplayManager replayManager;
     private JMenuItem     replayItem;
 }

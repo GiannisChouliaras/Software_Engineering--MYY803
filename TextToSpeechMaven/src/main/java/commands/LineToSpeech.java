@@ -8,13 +8,6 @@ import java.awt.event.ActionEvent;
 
 public class LineToSpeech implements ActionListener {
 
-    /**
-     * Constructor
-     * @param controller
-     * @param authorField
-     * @param titleField
-     * @param textArea
-     */
     public LineToSpeech(Controller controller, ReplayManager replayManager, JTextField authorField,
                         JTextField titleField, JTextArea textArea, JMenuItem ttsLineItem,
                         JMenuItem ttsReverseLineItem)
@@ -63,10 +56,6 @@ public class LineToSpeech implements ActionListener {
         }
     }
 
-
-    /**
-     * Private Fields
-     */
     private ReplayManager   replayManager;
     private JTextArea       textArea;
     private JTextField      authorField;

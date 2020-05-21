@@ -8,12 +8,6 @@ import controller.Controller;
 
 public class NewDocument implements ActionListener {
 
-	/**
-	 * Constructor for the class.
-	 * @param 'database' , the database from package controller.
-	 * @param titleField
-	 * @param authorField
-	 */
     public NewDocument(Controller controller, JTextField authorField, JTextField titleField ,
 					   JTextArea textArea, JSlider volumeSlider, JSlider rateSlider,
 					   JSlider pitchSlider)
@@ -50,10 +44,6 @@ public class NewDocument implements ActionListener {
 		}
     }
 
-
-	/**
-	 * Private fields.
-	 */
 	private JTextField	titleField;
 	private JTextField	authorField;
 	private Controller	controller;

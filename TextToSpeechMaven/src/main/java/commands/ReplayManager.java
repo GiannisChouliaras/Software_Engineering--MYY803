@@ -10,9 +10,6 @@ import java.util.ArrayList;
 
 public class ReplayManager {
 
-    /**
-     * Constructor of the class ReplayManager
-     */
     public ReplayManager(Controller controller)
     {
         this.controller = controller;
@@ -20,9 +17,6 @@ public class ReplayManager {
         strategiesFactory = new StrategiesFactory();
     }
 
-    /**
-     * method replay
-     */
     public void replay()
     {
         for(ArrayList<String> data : datas) {
@@ -98,11 +92,9 @@ public class ReplayManager {
         currentData.add(text);
 
         if (datas.contains(currentData)) {
-            System.out.println("Already in");
             return;
         }
         datas.add(currentData);
-        //System.out.println(datas.size());
     }
 
     public void addToList(String command, String author, String title, String text, int line)
@@ -115,7 +107,6 @@ public class ReplayManager {
         currentData.add(Integer.toString(line));
 
         if (datas.contains(currentData)) {
-            System.out.println("Already in");
             return;
         }
         datas.add(currentData);
@@ -125,7 +116,7 @@ public class ReplayManager {
     {
         datas.clear();
     }
-    /** Fields */
+
     private Controller controller;
     private ArrayList<ArrayList<String>> datas;
     private StrategiesFactory strategiesFactory;

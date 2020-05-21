@@ -2,13 +2,7 @@ package encodingstrategies;
 
 public class Rot13Encoding extends TemplateEncoding {
 
-    /**
-     * do we have any Field?
-     */
 
-    /**
-     * Constructor of the Class Rot13Encoding
-     */
     public Rot13Encoding() {
         super();
     }

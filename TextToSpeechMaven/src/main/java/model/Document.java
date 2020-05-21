@@ -30,7 +30,7 @@ public class Document {
 		ttsFactory = new TextToSpeechAPIFactory();
 		audioManager = ttsFactory.createTTSAPI("FreeTTSAdapter");
 		fakeAudioManager = ttsFactory.createTTSAPI("FakeTextToSpeechAPI");
-	} // end of Constructor
+	}
 
 	/**
 	 * constructor 2 for open
@@ -49,11 +49,9 @@ public class Document {
 		lines = new ArrayList<Line>();
 		ttsFactory = new TextToSpeechAPIFactory();
 		audioManager = ttsFactory.createTTSAPI("FreeTTSAdapter");
-	} // end constructor 2
+	}
 	
-	/**
-	 * playing the Contents of the document.
-	 */
+
 	public void playContents()
 	{
 		String audioLines = "";
@@ -62,7 +60,7 @@ public class Document {
 		}
 		audioLines = audioLines.substring(0, audioLines.length() -1);
 		audioManager.play(audioLines);
-	} // end playContents
+	}
 
 	public String playContentsForTest()
 	{
@@ -74,19 +72,14 @@ public class Document {
 		fakeAudioManager.play(audioLines);
 		return fakeAudioManager.getString();
 	}
-	/**
-	 * playing the contents of the document in Reverse
-	 */
+
 	public void playReverseContents()
 	{
 		for (int i = lines.size() - 1; i >= 0; i--) {
 			lines.get(i).playReverseLine();
 		}
-	} // end playReverseContents
+	}
 
-	/**
-	 * playing the Encoded contents of a document.
-	 */
 	public void playEncodedContents()
 	{
 		String encodeContent = "";
@@ -96,7 +89,7 @@ public class Document {
 		encodeContent = encodeContent.substring(0, encodeContent.length() -1);
 		String encoded = encodingStrategy.encode(encodeContent);
 		audioManager.play(encoded);
-	} // end playEncodedContents
+	}
 
 	public String playEncodedContentsTest() {
 		String encodeContent = "";
@@ -117,27 +110,19 @@ public class Document {
 	{
 		Line myLine = lines.get(line);
 		myLine.playLine();
-	} // end playLine
+	}
 
 	public void playLineString(String s)
 	{
 		audioManager.play(s);
 	}
 
-	/**
-	 * @param line
-	 * play a single line but in Reverse.
-	 */
 	public void playReversedLine(int line)
 	{
 		Line thisLine = lines.get(line);
 		thisLine.playReverseLine();
 	}
 
-	/**
-	 * @param line
-	 * play an encoded single line of the contents
-	 */
 	public void playEncodedLine(int line)
 	{
 		Line myLine = lines.get(line);
@@ -147,10 +132,6 @@ public class Document {
 
 	}
 
-	/**
-	 * @param encodedStrategy
-	 * tune encoding Strategy (?)
-	 */
 	public void tuneEncodingStrategy(EncodingStrategy encodedStrategy) {
 		this.encodingStrategy = encodedStrategy;
 	}
@@ -162,10 +143,10 @@ public class Document {
 	 */
 	public void setListFromText(String text)
 	{
-		String[] textLines = text.split("\n"); //holds all lines.
+		String[] textLines = text.split("\n");
 		for(String string : textLines) {
-			Line line = new Line(string); //create the line.
-			lines.add(line); //when you create a line, add it to list.
+			Line line = new Line(string);
+			lines.add(line);
 		}
 	}
 
@@ -200,10 +181,7 @@ public class Document {
 			}
 		}
 	}
-	
-	/**
-	 * Setting the modified date.
-	 */
+
 	public void giveModifiedDate()
 	{
 		Date thisDate = new Date();
@@ -211,17 +189,9 @@ public class Document {
 		lastModifiedString = sdf.format(thisDate);
 	}
 
-	/**
-	 * GETTERS SETTERS
-	 * @return
-	 */
 	public String getTitle() {return titleString; }
 
 	public String getAuthor() { return authorString; }
-
-	public String getDate() { return dateString; }
-
-	public String getMDate() { return lastModifiedString; }
 
 	public void setAuthor(String authorString) { this.authorString = authorString;}
 
@@ -256,9 +226,6 @@ public class Document {
 
 	public ArrayList<Line> getArrayList() {return lines;}
 
-	/**
-	 * @return a String with all the Lines.
-	 */
 	public String getText()
 	{
 		String wholeText = "";
@@ -272,9 +239,6 @@ public class Document {
 		this.lastModifiedString = mDate;
 	}
 
-	/**
-	 * @return a String so we can write it to txt file.
-	 */
 	public String infoToWrite()
 	{
 		return authorString + "\n" + titleString + "\n" + dateString + "\n" + lastModifiedString + "\n";
@@ -286,8 +250,6 @@ public class Document {
 				+ "\nLast Modified Date: " + lastModifiedString;
 	}
 
-
-	/** private Fields */
 	private EncodingStrategy		encodingStrategy;
 	private TextToSpeechAPI			audioManager, fakeAudioManager;
 	private TextToSpeechAPIFactory	ttsFactory;

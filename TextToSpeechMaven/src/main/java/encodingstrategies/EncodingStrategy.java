@@ -11,8 +11,3 @@ public interface EncodingStrategy {
 
 
 }
-
-
-/**
- * SOME ARROWS ARE COMING FROM Line , Document AND StrategiesFactory
- */

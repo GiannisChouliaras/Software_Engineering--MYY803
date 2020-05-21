@@ -2,13 +2,6 @@ package text2speechapis;
 
 public class TextToSpeechAPIFactory {
 
-    /**
-     * A factory for the TextToSpeechAPI
-     */
-
-    /**
-     * Constructor for the class TextToSpeechAPIFactory
-     */
     public TextToSpeechAPIFactory() {}
 
     /**

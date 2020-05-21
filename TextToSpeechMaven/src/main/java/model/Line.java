@@ -27,9 +27,6 @@ public class Line {
         }
     }
 
-    /*
-     * playing the Line.
-     */
     public void playLine() {
         for (String word : words) {
             audioManager.play(word);
@@ -49,9 +46,6 @@ public class Line {
         audioManager.play(reversedString);
     }
 
-    /**
-     * Playing the encoded line.
-     */
     public void playEncodedLine()
     {
         String encode = "";
@@ -95,7 +89,6 @@ public class Line {
         audioManager.setRate(value);
     }
 
-    /** private Fields */
     private EncodingStrategy        encodingStrategy;
     private TextToSpeechAPI         audioManager, fakeAudioManager;
     private TextToSpeechAPIFactory  ttsFactory;

@@ -9,15 +9,6 @@ import javax.swing.event.ChangeEvent;
 public class TuneAudio implements ChangeListener {
 
 
-    /**
-     * Constructor.
-     * @param controller
-     * @param author
-     * @param title
-     * @param volumeSlider
-     * @param pitchSlider
-     * @param rateSlider
-     */
     public TuneAudio(Controller controller, JTextField author, JTextField title,
                      JSlider volumeSlider, JSlider pitchSlider, JSlider rateSlider,
                      JLabel volumeValue, JLabel pitchValue, JLabel rateValue)
@@ -57,10 +48,6 @@ public class TuneAudio implements ChangeListener {
                     " this author and title");
     }
 
-
-    /**
-     * Fields
-     */
     private Controller  controller;
     private JTextField  author, title;
     private JSlider     volumeSlider, pitchSlider, rateSlider;

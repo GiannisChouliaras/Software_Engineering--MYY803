@@ -2,9 +2,6 @@ package encodingstrategies;
 
 public class StrategiesFactory {
 
-    /**
-     * Constructor of the class StrategiesFactory
-     */
     public StrategiesFactory() {}
 
     /**

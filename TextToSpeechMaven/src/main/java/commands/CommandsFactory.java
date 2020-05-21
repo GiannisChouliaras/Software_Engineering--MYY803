@@ -6,28 +6,6 @@ import javax.swing.*;
 
 public class CommandsFactory {
 
-    /**
-     * @param controller
-     * @param replayManager
-     * @param titleField
-     * @param authorField
-     * @param textArea
-     * @param editAuthorItem
-     * @param editTitleItem
-     * @param ttsLineItem
-     * @param ttsReverseLineItem
-     * @param ttsReverseAllItem
-     * @param volumeSlider
-     * @param pitchSlider
-     * @param rateSlider
-     * @param volumeValue
-     * @param pitchValue
-     * @param rateValue
-     * @param atBashEncoding
-     * @param atBashEncodingLine
-     * @param rot13Encoding
-     * @param rot13EncodingLine
-     */
     public CommandsFactory(Controller controller, ReplayManager replayManager,
                            JTextField titleField, JTextField authorField,
                            JTextArea textArea,JMenuItem editAuthorItem, JMenuItem editTitleItem,
@@ -117,9 +95,8 @@ public class CommandsFactory {
         } else
             throw new IllegalArgumentException("Factory problem");
     }
-    /**
-     * private fields
-     */
+
+
     private Controller      controller;
     private JTextArea       textArea;
     private JTextField      titleField;

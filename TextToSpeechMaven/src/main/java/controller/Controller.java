@@ -9,20 +9,11 @@ import model.Line;
 
 public class Controller {
 
-	/**
-	 * Constructor.
-	 * just init the database.
-	 */
 	public Controller() {
 		database = new ArrayList<Document>();
 		strategiesFactory = new StrategiesFactory();
 	}
 
-	/**
-	 * @param author
-	 * @param title
-	 * @return
-	 */
 	public Document getDocument(String author, String title)
 	{
 		for (Document document : database) {
@@ -176,7 +167,6 @@ public class Controller {
 			info.add(Integer.toString(document.getRate()));
 			return info;
 		}
-		System.out.println("Shouldn't print. CONTROLLER LINE 176");
 		return null;
 	}
 
@@ -244,11 +234,6 @@ public class Controller {
 		}
 	}
 
-
-
-	/**
-	 * private fields.
-	 */
 	private ArrayList<Document> database;
 	private StrategiesFactory 	strategiesFactory;
 }

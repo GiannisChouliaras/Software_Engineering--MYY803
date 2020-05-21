@@ -9,14 +9,7 @@ import model.Document;
 
 public class EditDocument implements ActionListener {
 
-    /**
-     * @param controller
-     * @param author
-     * @param title
-     * @param textArea
-     * @param editAuthorItem
-     * @param editTitleItem
-     */
+
     public EditDocument(Controller controller, JTextField author, JTextField title,
                         JTextArea textArea, JMenuItem editAuthorItem, JMenuItem editTitleItem)
     {
@@ -65,9 +58,7 @@ public class EditDocument implements ActionListener {
         }
     }
 
-    /**
-     * Private Fields
-     */
+
     private Controller controller;
     private JTextField author;
     private JTextField title;

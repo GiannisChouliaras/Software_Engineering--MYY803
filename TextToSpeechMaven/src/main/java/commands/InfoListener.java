@@ -7,13 +7,6 @@ import java.awt.event.ActionEvent;
 
 public class InfoListener implements ActionListener {
 
-
-    /**
-     * Constructor
-     * @param controller
-     * @param author
-     * @param title
-     */
     public InfoListener(Controller controller, JTextField author, JTextField title)
     {
         this.controller = controller;
@@ -33,9 +26,6 @@ public class InfoListener implements ActionListener {
         }
     }
 
-    /**
-     * Private fields
-     */
     private JTextField author, title;
     private Controller controller;
 }

@@ -2,21 +2,11 @@ package encodingstrategies;
 
 public class AtBashEncoding extends TemplateEncoding {
 
-    /**
-     * do we have any Field?
-     */
-
-    /**
-     * Constructor of the Class AtBashEncoding
-     */
     public AtBashEncoding() {
         super();
     }
 
-    /**
-     * @param string
-     * overrides the method encode
-     */
+
     @Override
     public String encode(String string)
     {

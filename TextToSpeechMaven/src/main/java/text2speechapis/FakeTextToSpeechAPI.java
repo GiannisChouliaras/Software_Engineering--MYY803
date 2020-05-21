@@ -5,9 +5,6 @@ import com.sun.speech.freetts.VoiceManager;
 
 public class FakeTextToSpeechAPI implements TextToSpeechAPI {
 
-    /**
-     * Constructor of the class FakeTextToSpeechAPI
-     */
     public FakeTextToSpeechAPI() {
         System.setProperty("freetts.voices",
                 "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");

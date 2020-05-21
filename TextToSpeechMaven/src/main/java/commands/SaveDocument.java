@@ -14,13 +14,6 @@ import view.FileTypeFilter;
 
 public class SaveDocument implements ActionListener {
 
-	/**
-	 * Constructor
-	 * @param controller
-	 * @param author
-	 * @param title
-	 * @param textArea
-	 */
   public SaveDocument(Controller controller, JTextField author, JTextField title,
 					  JTextArea textArea)
   {
@@ -67,9 +60,6 @@ public class SaveDocument implements ActionListener {
 	  }//End of Saving the file.
   } // end of actionPerformed.
 
-	/**
-	 * private Fields for the class.
-	 */
 	private JTextField author;
 	private JTextField title;
 	private JTextArea  textArea;

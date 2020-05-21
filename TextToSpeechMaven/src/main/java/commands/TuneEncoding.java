@@ -9,9 +9,6 @@ import java.awt.event.ActionEvent;
 
 public class TuneEncoding implements ActionListener {
 
-    /**
-     * Constructor of the class TuneEncoding
-     */
     public TuneEncoding(Controller controller, ReplayManager replayManager,
                         JTextField authorField, JTextField titleField,
                         JMenuItem atBashEncoding, JMenuItem atBashEncodingLine,
@@ -64,10 +61,6 @@ public class TuneEncoding implements ActionListener {
 
     }
 
-
-    /**
-     * private Fields
-     */
     private Controller    controller;
     private ReplayManager replayManager;
     private JTextField    authorField, titleField;

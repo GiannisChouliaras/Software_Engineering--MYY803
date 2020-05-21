@@ -14,13 +14,6 @@ import view.FileTypeFilter;
 
 public class OpenDocument implements ActionListener {
 
-	/**
-	 * Constructor for the Class.
-	 * @param database is the main database where we store all documents.
-	 * @param authorString JTextField field.
-	 * @param titleString  JTextField field.
-	 * @param textArea	   JTextArea field
-	 */
     public OpenDocument(Controller controller, JTextField authorString, JTextField titleString, JTextArea textArea,
 						JSlider volumeSlider, JSlider pitchSlider, JSlider rateSlider,
 						JLabel volumeValue, JLabel pitchValue, JLabel rateValue)
@@ -136,10 +129,7 @@ public class OpenDocument implements ActionListener {
 			rateValue.setText("100");
 		}
     }
-    
-	/**
-	 * Private fields for the class.
-	 */
+
 	private JTextField	authorString;
 	private JTextField	titleString;
 	private JTextArea	textArea;

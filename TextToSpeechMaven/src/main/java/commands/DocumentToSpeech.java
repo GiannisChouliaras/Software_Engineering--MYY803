@@ -10,12 +10,6 @@ import java.util.ArrayList;
 
 public class DocumentToSpeech implements ActionListener {
 
-    /**
-     * @param controller
-     * @param authorField
-     * @param titleField
-     * @param ttsReverseAllItem
-     */
     public DocumentToSpeech(Controller controller, ReplayManager replayManager,
                             JTextField authorField, JTextField titleField,
                             JMenuItem ttsReverseAllItem)
@@ -52,9 +46,7 @@ public class DocumentToSpeech implements ActionListener {
         }
     }
 
-    /**
-     * Private fields.
-     */
+
     private JTextField    authorField;
     private JTextField    titleField;
     private Controller    controller;

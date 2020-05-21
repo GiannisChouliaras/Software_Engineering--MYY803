@@ -2,9 +2,6 @@ package encodingstrategies;
 
 public abstract class TemplateEncoding implements EncodingStrategy {
 
-    /**
-     * Constructor for the class TemplateEncoding
-     */
     public TemplateEncoding(){}
 
     /**
