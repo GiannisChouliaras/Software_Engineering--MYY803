@@ -1,6 +1,6 @@
 # Text To Speech 
 
-This project was created for the course MYY803 -- Software Engineering (undergraduate course at the University of Ioannina)
+This project was created for the course MYY803 -- Software Engineering (undergraduate course at the University of Ioannina department of Computer Science and Engineering) 
 
 ## Getting Started
 
