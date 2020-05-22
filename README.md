@@ -36,9 +36,9 @@ if the texts are same, my method works fine. Test is green and nice.
 
 ## Built With
 
-* **Java 11**
-* **FreeTTs**
-* **JUnit 5**
+* [Java 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+* [FreeTTS](https://freetts.sourceforge.io)
+* [JUnit 5](https://junit.org/junit5/docs/current/user-guide/)
 * [Maven](https://maven.apache.org/)
 
 
