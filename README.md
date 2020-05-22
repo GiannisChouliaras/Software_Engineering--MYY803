@@ -38,6 +38,10 @@ Finally I can use AssertEquals with the valid encoded text and the returned valu
 * [Maven](https://maven.apache.org/)
 
 
+## Video
+
+There is a small video that demonstrates the use-Stories [here](https://github.com/GiannisChouliaras/Software_Engineering--MYY803/tree/master/video)
+
 ## Authors
 
 * **Ioannis Chouliaras** - AM: 2631
