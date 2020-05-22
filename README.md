@@ -19,7 +19,7 @@ The GUI of the application will pop up. Then you can create a new Document by pr
 
 ## Running the tests
 
-Open the project file with IntelliJ or Eclipse. Then under the folder src you will find two folders "main" and "test". Open the folder test and right click the folder "java" then you have to select run all tests (JUnit 5).
+Open the project file with IntelliJ or Eclipse. Under the folder src you will find two folders the "main" and the "test". Open the folder test and press right click on the folder "java" and select run all tests (JUnit 5).
 
 ### Tests
 
@@ -36,6 +36,9 @@ if the texts are same, my method works fine. Test is green and nice.
 
 ## Built With
 
+* **Java 11**
+* **FreeTTs**
+* **JUnit 5**
 * [Maven](https://maven.apache.org/)
 
 
