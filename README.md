@@ -30,7 +30,8 @@ I want to test if the encoding of a text is correct. I have one test method call
 I create a Document, strategy and encoding objects.
 then i define a valid Rot13 and atBash encoded texts of the string "hello".
 I call the method with the parameter of "hello" and the method returns the encoded text.
-Finally I can use AssertEquals with the valid encoded text and the returned value, if the texts are same, my method works fine. Test is green and nice.
+Finally I can use AssertEquals with the valid encoded text and the returned value, 
+if the texts are same, my method works fine. Test is green and nice.
 ```
 
 ## Built With
