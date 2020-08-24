@@ -41,11 +41,6 @@ if the texts are same, my method works fine. Test is green and nice.
 * [JUnit 5](https://junit.org/junit5/docs/current/user-guide/)
 * [Maven](https://maven.apache.org/)
 
-
-## Video
-
-There is a small video that demonstrates the use-Stories [here](https://github.com/GiannisChouliaras/Software_Engineering--MYY803/tree/master/video)
-
 ## Authors
 
 * **Ioannis Chouliaras** - AM: 2631
