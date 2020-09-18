@@ -26,23 +26,50 @@ public class EncodeDocument implements ActionListener {
         Document currentDocument = instance.getCurrentDocument();
         if (currentDocument == null) return;
 
-        if (!currentDocument.getText().equals(textArea.getText())) {
+        currentDocument.setAPI(new FreeTTSAdapter());
+        checkIfTextBetweenAreaAndDocumentAreSame(currentDocument);
+
+        if (e.getSource() == rot13Encoding) {
+            if (!canIEncodeWithRot(instance)) {informTheAlreadyEncode(instance); return;}
+            currentDocument.tuneEncodingStrategy(strategiesFactory.createStrategy("Rot13Encoding"));
+            currentDocument.playEncodedContents();
+            textArea.setText(currentDocument.getText());
+            if (instance.isEncoded()) instance.setEncoded(false, "none");
+            else instance.setEncoded(true, "Rot13Encoding");
+            return;
+        }
+        if (!canIEncodeWithAtBash(instance)) {informTheAlreadyEncode(instance); return;}
+        currentDocument.tuneEncodingStrategy(strategiesFactory.createStrategy("AtBashEncoding"));
+        currentDocument.playEncodedContents();
+        textArea.setText(currentDocument.getText());
+        if (instance.isEncoded()) instance.setEncoded(false, "none");
+        else instance.setEncoded(true, "AtBashEncoding");
+    }
+
+    private void checkIfTextBetweenAreaAndDocumentAreSame(Document document) {
+        if (!document.getText().equals(textArea.getText())) {
             int choice = JOptionPane.showConfirmDialog(null,
                     "replace Document's text with area's?",
                     "Document's text is different from area's text",
                     JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
             if (choice == JOptionPane.YES_OPTION)
-                currentDocument.editDocument(textArea.getText());
+                document.editDocument(textArea.getText());
         }
+    }
 
-        currentDocument.setAPI(new FreeTTSAdapter());
+    private boolean canIEncodeWithRot(Text2SpeechEditorView instance) {
+        return !(instance.isEncoded() && instance.getEncode().equals("AtBashEncoding"));
+    }
 
-        if (e.getSource() == rot13Encoding) {
-            currentDocument.tuneEncodingStrategy(strategiesFactory.createStrategy("Rot13Encoding"));
-            currentDocument.playEncodedContents();
-            return;
-        }
-        currentDocument.tuneEncodingStrategy(strategiesFactory.createStrategy("AtBashEncoding"));
-        currentDocument.playEncodedContents();
+    private boolean canIEncodeWithAtBash(Text2SpeechEditorView instance) {
+        return !(instance.isEncoded() && instance.getEncode().equals("Rot13Encoding"));
+    }
+
+    private void informTheAlreadyEncode(Text2SpeechEditorView instance) {
+        JOptionPane.showMessageDialog(null,
+                "You already encoded your text with: " +
+                instance.getEncode() + ".", "Cannot Encode",
+                JOptionPane.INFORMATION_MESSAGE);
     }
 }
+

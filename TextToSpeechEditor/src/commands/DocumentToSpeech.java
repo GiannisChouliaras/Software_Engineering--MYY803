@@ -33,7 +33,9 @@ public class DocumentToSpeech implements ActionListener {
 
         if (e.getSource() == ttsReverseAllItem) {
             currentDocument.playReverseContents();
-            return;
+            textArea.setText(currentDocument.getText());
+            if (instance.isReversed()) instance.setReversed(false);
+            else instance.setReversed(true);
         }
         currentDocument.playContents();
     }

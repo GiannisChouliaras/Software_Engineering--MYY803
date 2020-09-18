@@ -39,15 +39,7 @@ public class Document {
 
 
     public void playReverseContents() {
-        try {
-            for (int line = lines.size()-1; line >= 0; line --) {
-                lines.get(line).setAudioManager(audioManager);
-                lines.get(line).playReverseLine();
-            }
-        } catch (NullPointerException np) {
-            System.out.println(np.getLocalizedMessage());
-            System.out.println("use setAPI for your document in command");
-        }
+        for (Line line : lines) line.reverseWords();
     }
 
     public void playEncodedContents() {
@@ -72,7 +64,12 @@ public class Document {
     }
 
     public void playReverseLine(int line) {
-
+        try {
+            lines.get(line).setAudioManager(audioManager);
+            lines.get(line).playReverseLine();
+        } catch (IndexOutOfBoundsException l) {
+            System.out.println(l.getMessage());
+        }
     }
 
     public void playEncodedLine(int line) {

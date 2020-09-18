@@ -12,20 +12,21 @@ public class CommandsFactory {
     private final JMenuItem editAuthorItem;
     private final JMenuItem editTitleItem;
     private final JMenuItem giveFilenameMenuItem;
-    private final JMenuItem ttsReverseAllItem;;
+    private final JMenuItem ttsReverseAllItem;
     private final JMenuItem rot13Encoding;
     private final JMenuItem rot13EncodingLine;
     private final JMenuItem replayItem;
     private final JSlider volumeSlider;
     private final JSlider pitchSlider;
     private final JSlider rateSlider;
+    private final JMenuItem ttsRevLineItem;
 
     public CommandsFactory(JTextArea text, JTextField titleField, JTextField authorField,
                            JMenuItem editAuthorItem, JMenuItem editTitleItem,
                            JMenuItem ttsReverseAllItem, JMenuItem rot13Encoding,
                            JMenuItem rot13EncodingLine, JMenuItem replayItem,
                            JSlider volumeSlider, JSlider pitchSlider, JSlider rateSlider,
-                           JMenuItem giveFilenameMenuItem) {
+                           JMenuItem giveFilenameMenuItem, JMenuItem ttsRevLineItem) {
         this.text = text;
         this.titleField = titleField;
         this.authorField = authorField;
@@ -39,6 +40,7 @@ public class CommandsFactory {
         this.pitchSlider = pitchSlider;
         this.rateSlider = rateSlider;
         this.giveFilenameMenuItem = giveFilenameMenuItem;
+        this.ttsRevLineItem = ttsRevLineItem;
     }
 
     public ActionListener createCommand(String command) {
@@ -58,7 +60,7 @@ public class CommandsFactory {
         if (command.equals("DocumentToSpeech"))
             return new DocumentToSpeech(text, ttsReverseAllItem);
         if (command.equals("LineToSpeech"))
-            return new LineToSpeech(text);
+            return new LineToSpeech(text, ttsRevLineItem);
         if (command.equals("EncodeDocument"))
             return new EncodeDocument(text, rot13Encoding);
         if (command.equals("ReplayCommand"))

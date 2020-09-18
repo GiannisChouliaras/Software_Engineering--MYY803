@@ -52,8 +52,7 @@ public class OpenDocument implements ActionListener {
         int i = fileChooser.showOpenDialog(null);
         if (i == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
-            String filePath = file.getPath();
-            return filePath;
+            return file.getPath();
         }
         return "";
     }

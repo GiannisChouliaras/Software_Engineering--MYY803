@@ -17,7 +17,7 @@ public class AtBashEncoding extends TemplateEncoding {
         if (characher >= 'a' && characher <= 'z') {
             int i = characher;
             i = characher - 'a';
-            i = 'a' - i;
+            i = 'z' - i;
             characher = (char) i;
         }
         return characher;

@@ -4,7 +4,6 @@ import model.encodingStrategies.IEncodingStrategy;
 import model.text2speechapis.ITextToSpeechAPI;
 
 import java.util.ArrayList;
-import java.util.ListIterator;
 
 public class Line {
 
@@ -45,12 +44,36 @@ public class Line {
     }
 
     public void playEncodedLine() {
+        ArrayList<String> temporary = new ArrayList<>();
         try {
             for (String word : words) {
                 audioManager.play(encodingStrategy.encode(word));
+                temporary.add(encodingStrategy.encode(word));
             }
         } catch (NullPointerException np) {
             System.out.println(np.getMessage());
+        }
+        words.clear();
+        for (String word: temporary) words.add(word);
+    }
+
+    public String getWholeLine() {
+        if (words.isEmpty()) return "";
+        String line = "";
+        for (String word: words) {
+            line += word + " ";
+        }
+        return lineWithoutLastIndex(line);
+    }
+
+    public void reverseWords() {
+        ArrayList<String> temporary = new ArrayList<>();
+        for (int word = words.size()-1; word >= 0; word --){
+            temporary.add(words.get(word));
+        }
+        words.clear();
+        for (String word: temporary) {
+            words.add(word);
         }
     }
 
@@ -67,15 +90,6 @@ public class Line {
         for (String word : wordsFromLine) {
             words.add(word);
         }
-    }
-
-    public String getWholeLine() {
-        if (words.isEmpty()) return "";
-        String line = "";
-        for (String word: words) {
-            line += word + " ";
-        }
-        return lineWithoutLastIndex(line);
     }
 
     private String lineWithoutLastIndex(String line) {

@@ -11,9 +11,11 @@ import java.awt.event.ActionEvent;
 public class LineToSpeech implements ActionListener {
 
     private JTextArea textArea;
+    private JMenuItem ttsRevLineItem;
 
-    public LineToSpeech(JTextArea textArea) {
+    public LineToSpeech(JTextArea textArea, JMenuItem ttsRevLineItem) {
         this.textArea = textArea;
+        this.ttsRevLineItem = ttsRevLineItem;
     }
 
     @Override
@@ -27,10 +29,14 @@ public class LineToSpeech implements ActionListener {
         if (documentsTextIsNotTheSameAsTextArea(currentDocument))
             replaceDocumentsTextWithTextArea(currentDocument);
 
-        int line = askWhatLineToPlay(currentDocument);
+        int line = askWhatLineToPlay();
         if (line == -1) return;
 
         currentDocument.setAPI(new FreeTTSAdapter());
+        if (e.getSource() == ttsRevLineItem) {
+            currentDocument.playReverseLine(line);
+            return;
+        }
         currentDocument.playLine(line);
     }
 
@@ -42,7 +48,7 @@ public class LineToSpeech implements ActionListener {
         document.editDocument(textArea.getText());
     }
 
-    private int askWhatLineToPlay(Document document) {
+    private int askWhatLineToPlay() {
         String line = JOptionPane.showInputDialog("Choose line to play");
         if (line.isBlank()) return -1;
         return Integer.parseInt(line) - 1;
@@ -50,7 +56,7 @@ public class LineToSpeech implements ActionListener {
 
     private void addCommandToManager(Text2SpeechEditorView instance, ActionEvent e) {
         if (!instance.canITrackCommands()) return;
-        ActionsManager command = new ActionsManager(e, new LineToSpeech(textArea));
+        ActionsManager command = new ActionsManager(e, new LineToSpeech(textArea, ttsRevLineItem));
         instance.addActionToReplayManager(command);
     }
 }

@@ -20,6 +20,8 @@ public final class Text2SpeechEditorView {
     private static volatile Text2SpeechEditorView singleInstance = null;
     private JTextArea text;
     private boolean canTrackCommands = false;
+    private boolean reversed = false, encoded = false;
+    private String encode = "none";
     private JFrame frame;
     private final ReplayManager replayManager = new ReplayManager();
     private Document currentDocument;
@@ -30,6 +32,12 @@ public final class Text2SpeechEditorView {
 
     public Text2SpeechEditorView() {
         initialize();
+    }
+
+    public static Text2SpeechEditorView getSingletonView() {
+        if (singleInstance == null)
+            singleInstance = new Text2SpeechEditorView();
+        return singleInstance;
     }
 
     public static void main(String[] args) {
@@ -48,11 +56,24 @@ public final class Text2SpeechEditorView {
     }
 
     public boolean isReversed() {
-        return false;
+        return reversed;
+    }
+
+    public void setReversed(boolean reversed) {
+        this.reversed = reversed;
     }
 
     public boolean isEncoded() {
-        return false;
+        return encoded;
+    }
+
+    public String getEncode() {
+        return encode;
+    }
+
+    public void setEncoded(boolean encoded, String encode) {
+        this.encoded = encoded;
+        this.encode = encode;
     }
 
     public int getRate() {
@@ -98,12 +119,6 @@ public final class Text2SpeechEditorView {
     }
 
     public void setCurrentDocument(Document currentDocument) {this.currentDocument = currentDocument;}
-
-    public static Text2SpeechEditorView getSingletonView() {
-        if (singleInstance == null)
-            singleInstance = new Text2SpeechEditorView();
-        return singleInstance;
-    }
 
     private void initialize() {
         frame = new JFrame("Text To Speech Editor");
@@ -401,7 +416,7 @@ public final class Text2SpeechEditorView {
         CommandsFactory commandsFactory = new CommandsFactory(text, titleTextField, authorTextField,
                 editAuthorItem, editTitleItem, ttsRevAllItem, rot13Encoding,
                 rot13EncodingLine, replayItem, volumeSlider, pitchSlider,
-                rateSlider, giveFilenameMenuItem);
+                rateSlider, giveFilenameMenuItem, ttsRevLineItem);
 
         /**
          * ~~~~~~~~~~~~~~~~~~~~~~~ ACTIONS LISTENERS ~~~~~~~~~~~~~~~~~~~~~~~
@@ -436,6 +451,7 @@ public final class Text2SpeechEditorView {
         ActionListener lineToSpeechListener = commandsFactory.createCommand("LineToSpeech");
         ttsLineItem.addActionListener(lineToSpeechListener);
         lineToSpeechButton.addActionListener(lineToSpeechListener);
+        ttsRevLineItem.addActionListener(lineToSpeechListener);
 
         ActionListener encodeDocument = commandsFactory.createCommand("EncodeDocument");
         rot13Encoding.addActionListener(encodeDocument);

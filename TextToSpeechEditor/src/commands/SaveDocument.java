@@ -21,12 +21,14 @@ public class SaveDocument implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Text2SpeechEditorView instance = Text2SpeechEditorView.getSingletonView();
         if (instance.getCurrentDocument() == null) return;
+        if (instance.isEncoded()) {informEncodedText(instance); return;}
+        if (instance.isReversed()) {informReversedText(); return;}
+
         String text = "";
         text += instance.getCurrentDocument().getAuthor() + "\n";
         text += instance.getCurrentDocument().getTitle() + "\n";
         text += instance.getCurrentDocument().getDocumentsCreationalDate() + "\n";
         text += new Date().toString() + "\n\n";
-
         if (saveTextAreaContents()) text += textArea.getText();
         else text += Text2SpeechEditorView.getSingletonView().getCurrentDocument().getText();
         String path = getPathFromWindow();
@@ -64,6 +66,18 @@ public class SaveDocument implements ActionListener {
             System.err.format("Exception occurred trying to write '%s'.", path);
         }
     }
-}
 
-// TODO When you save in same file, it keeps the previous data. Delete them before you save like a new file.
+    private void informEncodedText(Text2SpeechEditorView instance) {
+        JOptionPane.showMessageDialog(null,
+                "Cannot save a Document with" +
+                " encoded text! Encode: " + instance.getEncode() +". ", "Cannot" +
+                " Save Document", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void informReversedText() {
+        JOptionPane.showMessageDialog(null,
+                "Cannot save a Document with" +
+                        " reversed text!", "Cannot" +
+                        " Save Document", JOptionPane.INFORMATION_MESSAGE);
+    }
+}
