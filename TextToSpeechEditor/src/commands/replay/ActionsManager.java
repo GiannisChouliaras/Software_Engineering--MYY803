@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 
 public class ActionsManager {
 
-    private ActionEvent actionEvent;
-    private ActionListener actionListener;
+    private final ActionEvent actionEvent;
+    private final ActionListener actionListener;
 
     public ActionsManager(ActionEvent actionEvent, ActionListener actionListener) {
         this.actionEvent = actionEvent;

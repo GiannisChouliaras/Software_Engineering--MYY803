@@ -9,8 +9,9 @@ import java.awt.event.ActionEvent;
 
 public class NewDocument implements ActionListener {
 
-    private JTextField authorField, titleField;
-    private JTextArea area;
+    private final JTextField authorField;
+    private final JTextField titleField;
+    private final JTextArea area;
 
     public NewDocument(JTextField authorField, JTextField titleField, JTextArea area) {
         this.authorField = authorField;

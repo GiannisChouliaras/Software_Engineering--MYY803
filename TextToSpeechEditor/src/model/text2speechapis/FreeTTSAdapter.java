@@ -5,7 +5,7 @@ import com.sun.speech.freetts.VoiceManager;
 
 public class FreeTTSAdapter implements ITextToSpeechAPI {
 
-    private Voice voice;
+    private final Voice voice;
 
     public FreeTTSAdapter() {
         System.setProperty("freetts.voices",

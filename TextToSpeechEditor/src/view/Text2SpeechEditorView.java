@@ -413,10 +413,10 @@ public final class Text2SpeechEditorView {
         /**
          * ~~~~~~~~~~~~~~~~~~~~~~~ COMMAND FACTORY ~~~~~~~~~~~~~~~~~~~~~~~
          */
-        CommandsFactory commandsFactory = new CommandsFactory(text, titleTextField, authorTextField,
-                editAuthorItem, editTitleItem, ttsRevAllItem, rot13Encoding,
-                rot13EncodingLine, replayItem, volumeSlider, pitchSlider,
-                rateSlider, giveFilenameMenuItem, ttsRevLineItem);
+        CommandsFactory commandsFactory = new CommandsFactory(text, titleTextField,
+                authorTextField, editAuthorItem, editTitleItem, ttsRevAllItem,
+                rot13Encoding, replayItem,giveFilenameMenuItem, ttsRevLineItem,
+                atBashEncodingLine);
 
         /**
          * ~~~~~~~~~~~~~~~~~~~~~~~ ACTIONS LISTENERS ~~~~~~~~~~~~~~~~~~~~~~~
@@ -456,6 +456,10 @@ public final class Text2SpeechEditorView {
         ActionListener encodeDocument = commandsFactory.createCommand("EncodeDocument");
         rot13Encoding.addActionListener(encodeDocument);
         atBashEncoding.addActionListener(encodeDocument);
+
+        ActionListener encodeLine = commandsFactory.createCommand("EncodeLine");
+        rot13EncodingLine.addActionListener(encodeLine);
+        atBashEncodingLine.addActionListener(encodeLine);
 
         ActionListener replayCommand = commandsFactory.createCommand("ReplayCommand");
         replayItem.addActionListener(replayCommand);

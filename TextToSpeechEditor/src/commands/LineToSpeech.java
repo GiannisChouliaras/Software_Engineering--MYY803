@@ -10,8 +10,8 @@ import java.awt.event.ActionEvent;
 
 public class LineToSpeech implements ActionListener {
 
-    private JTextArea textArea;
-    private JMenuItem ttsRevLineItem;
+    private final JTextArea textArea;
+    private final JMenuItem ttsRevLineItem;
 
     public LineToSpeech(JTextArea textArea, JMenuItem ttsRevLineItem) {
         this.textArea = textArea;

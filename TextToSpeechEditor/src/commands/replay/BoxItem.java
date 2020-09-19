@@ -8,7 +8,7 @@ import java.awt.event.ItemListener;
 
 public class BoxItem implements ItemListener {
 
-    private JCheckBoxMenuItem trackCommands;
+    private final JCheckBoxMenuItem trackCommands;
 
     public BoxItem(JCheckBoxMenuItem trackCommands) {
         this.trackCommands = trackCommands;

@@ -2,7 +2,7 @@ package model.text2speechapis;
 
 public class Facade {
 
-    private ITextToSpeechAPI freeTTSAdapter;
+    private final ITextToSpeechAPI freeTTSAdapter;
 
 
     public Facade(ITextToSpeechAPI freeTTSAdapter) {

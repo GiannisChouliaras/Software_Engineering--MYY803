@@ -16,7 +16,7 @@ public class Document {
     private String title;
     private String documentsCreationalDate;
     private String documentsLastSavedDate = "";
-    private ArrayList<Line> lines = new ArrayList<Line>();
+    private final ArrayList<Line> lines = new ArrayList<Line>();
 
     public Document(String author, String title) {
         this.author = author;
@@ -36,7 +36,6 @@ public class Document {
             System.out.println("Maybe iteration is not correct!");
         }
     }
-
 
     public void playReverseContents() {
         for (Line line : lines) line.reverseWords();
@@ -73,7 +72,14 @@ public class Document {
     }
 
     public void playEncodedLine(int line) {
-
+        try {
+            lines.get(line).setAudioManager(audioManager);
+            lines.get(line).tuneEncodingStrategy(encodingStrategy);
+            lines.get(line).playEncodedLine();
+            lines.get(line).fixEncodedLine();
+        } catch (IndexOutOfBoundsException l) {
+            System.out.println(l.getMessage());
+        }
     }
 
     public void tuneEncodingStrategy(IEncodingStrategy encodingStrategy) {

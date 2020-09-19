@@ -14,11 +14,11 @@ import java.util.ArrayList;
 
 public class OpenDocument implements ActionListener {
 
-    private JMenuItem giveFilenameMenuItem;
-    private JTextArea textArea;
-    private JTextField authorField;
-    private JTextField titleField;
-    private ArrayList<String> fileContents = new ArrayList<String>();
+    private final JMenuItem giveFilenameMenuItem;
+    private final JTextArea textArea;
+    private final JTextField authorField;
+    private final JTextField titleField;
+    private final ArrayList<String> fileContents = new ArrayList<String>();
 
     public OpenDocument(JMenuItem giveFilenameMenuItem, JTextArea textArea,
                         JTextField authorField, JTextField titleField) {
@@ -42,12 +42,12 @@ public class OpenDocument implements ActionListener {
         checkIfDocumentOpenedAndUpdateFields();
     }
 
-    private final String viaPath()  {
+    private String viaPath()  {
         return JOptionPane.showInputDialog(null,
                 "Give me the direct path");
     }
 
-    private final String viaWindow() {
+    private String viaWindow() {
        JFileChooser fileChooser = new JFileChooser();
         int i = fileChooser.showOpenDialog(null);
         if (i == JFileChooser.APPROVE_OPTION) {
@@ -57,7 +57,7 @@ public class OpenDocument implements ActionListener {
         return "";
     }
 
-    private final void fillContentsFromFile(String path) {
+    private void fillContentsFromFile(String path) {
         fileContents.clear();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(path));
@@ -71,7 +71,7 @@ public class OpenDocument implements ActionListener {
         }
     }
 
-    private final Document formatDocument() {
+    private Document formatDocument() {
         String author = fileContents.get(0);
         String title = fileContents.get(1);
         String creationalDate = fileContents.get(2);

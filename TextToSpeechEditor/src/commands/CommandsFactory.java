@@ -14,19 +14,15 @@ public class CommandsFactory {
     private final JMenuItem giveFilenameMenuItem;
     private final JMenuItem ttsReverseAllItem;
     private final JMenuItem rot13Encoding;
-    private final JMenuItem rot13EncodingLine;
     private final JMenuItem replayItem;
-    private final JSlider volumeSlider;
-    private final JSlider pitchSlider;
-    private final JSlider rateSlider;
     private final JMenuItem ttsRevLineItem;
+    private final JMenuItem atBashEncodingLine;
 
     public CommandsFactory(JTextArea text, JTextField titleField, JTextField authorField,
                            JMenuItem editAuthorItem, JMenuItem editTitleItem,
                            JMenuItem ttsReverseAllItem, JMenuItem rot13Encoding,
-                           JMenuItem rot13EncodingLine, JMenuItem replayItem,
-                           JSlider volumeSlider, JSlider pitchSlider, JSlider rateSlider,
-                           JMenuItem giveFilenameMenuItem, JMenuItem ttsRevLineItem) {
+                           JMenuItem replayItem, JMenuItem giveFilenameMenuItem,
+                           JMenuItem ttsRevLineItem, JMenuItem atBashEncodingLine) {
         this.text = text;
         this.titleField = titleField;
         this.authorField = authorField;
@@ -34,13 +30,10 @@ public class CommandsFactory {
         this.editTitleItem = editTitleItem;
         this.ttsReverseAllItem = ttsReverseAllItem;
         this.rot13Encoding = rot13Encoding;
-        this.rot13EncodingLine = rot13EncodingLine;
         this.replayItem = replayItem;
-        this.volumeSlider = volumeSlider;
-        this.pitchSlider = pitchSlider;
-        this.rateSlider = rateSlider;
         this.giveFilenameMenuItem = giveFilenameMenuItem;
         this.ttsRevLineItem = ttsRevLineItem;
+        this.atBashEncodingLine = atBashEncodingLine;
     }
 
     public ActionListener createCommand(String command) {
@@ -65,6 +58,8 @@ public class CommandsFactory {
             return new EncodeDocument(text, rot13Encoding);
         if (command.equals("ReplayCommand"))
             return new ReplayCommand(replayItem);
+        if (command.equals("EncodeLine"))
+            return new EncodeLine(atBashEncodingLine);
 
         throw new IllegalArgumentException("Command Factory Problem");
     }

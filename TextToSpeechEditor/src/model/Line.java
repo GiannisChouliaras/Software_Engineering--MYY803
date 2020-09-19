@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Line {
 
-    private ArrayList<String> words = new ArrayList<>();
+    private final ArrayList<String> words = new ArrayList<>();
     private IEncodingStrategy encodingStrategy;
     private ITextToSpeechAPI audioManager;
 
@@ -52,6 +52,15 @@ public class Line {
             }
         } catch (NullPointerException np) {
             System.out.println(np.getMessage());
+        }
+        words.clear();
+        for (String word: temporary) words.add(word);
+    }
+
+    public void fixEncodedLine() {
+        ArrayList<String> temporary = new ArrayList<>();
+        for (String word: words) {
+            temporary.add(encodingStrategy.encode(word));
         }
         words.clear();
         for (String word: temporary) words.add(word);

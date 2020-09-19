@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 public class ReplayCommand implements ActionListener {
-    private JMenuItem replayCommand;
+    private final JMenuItem replayCommand;
 
     public ReplayCommand(JMenuItem replayCommand) {
         this.replayCommand = replayCommand;

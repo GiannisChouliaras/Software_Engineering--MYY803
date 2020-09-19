@@ -9,9 +9,11 @@ import java.awt.event.ActionEvent;
 
 public class EditDocument implements ActionListener {
 
-    private JTextField authorField, titleField;
-    private JMenuItem editAuthorItem, editTitleItem;
-    private JTextArea textArea;
+    private final JTextField authorField;
+    private final JTextField titleField;
+    private final JMenuItem editAuthorItem;
+    private final JMenuItem editTitleItem;
+    private final JTextArea textArea;
 
     public EditDocument(JTextField authorField, JTextField titleField,
                         JTextArea textArea, JMenuItem editAuthorItem,

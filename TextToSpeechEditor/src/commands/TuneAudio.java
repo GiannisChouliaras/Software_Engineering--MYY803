@@ -8,7 +8,9 @@ import javax.swing.event.ChangeListener;
 
 public class TuneAudio implements ChangeListener {
 
-    private JSlider volumeSlider, rateSlider, pitchSlider;
+    private final JSlider volumeSlider;
+    private final JSlider rateSlider;
+    private final JSlider pitchSlider;
 
     public TuneAudio(JSlider volumeSlider, JSlider rateSlider, JSlider pitchSlider) {
         this.volumeSlider = volumeSlider;

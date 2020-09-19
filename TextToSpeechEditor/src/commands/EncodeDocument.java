@@ -10,9 +10,9 @@ import java.awt.event.ActionEvent;
 
 public class EncodeDocument implements ActionListener {
 
-    private JTextArea textArea;
-    private JMenuItem rot13Encoding;
-    private StrategiesFactory strategiesFactory = new StrategiesFactory();
+    private final JTextArea textArea;
+    private final JMenuItem rot13Encoding;
+    private final StrategiesFactory strategiesFactory = new StrategiesFactory();
 
     public EncodeDocument(JTextArea textArea, JMenuItem rot13Encoding) {
         this.textArea = textArea;
@@ -42,6 +42,7 @@ public class EncodeDocument implements ActionListener {
         currentDocument.tuneEncodingStrategy(strategiesFactory.createStrategy("AtBashEncoding"));
         currentDocument.playEncodedContents();
         textArea.setText(currentDocument.getText());
+
         if (instance.isEncoded()) instance.setEncoded(false, "none");
         else instance.setEncoded(true, "AtBashEncoding");
     }

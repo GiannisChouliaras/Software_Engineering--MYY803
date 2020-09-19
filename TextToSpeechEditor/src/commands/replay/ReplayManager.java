@@ -7,8 +7,8 @@ public class ReplayManager {
     private final ArrayList<ActionsManager> actions = new ArrayList<ActionsManager>();
 
     public void replay() {
-        for (int i = 0; i < actions.size(); i ++) {
-            actions.get(i).replay();
+        for (ActionsManager action : actions) {
+            action.replay();
         }
     }
 

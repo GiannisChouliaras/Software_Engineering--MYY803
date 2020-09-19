@@ -10,8 +10,8 @@ import java.awt.event.ActionEvent;
 
 public class DocumentToSpeech implements ActionListener {
 
-    private JTextArea textArea;
-    private JMenuItem ttsReverseAllItem;
+    private final JTextArea textArea;
+    private final JMenuItem ttsReverseAllItem;
 
     public DocumentToSpeech(JTextArea textArea, JMenuItem ttsReverseAllItem) {
         this.textArea = textArea;
@@ -34,8 +34,7 @@ public class DocumentToSpeech implements ActionListener {
         if (e.getSource() == ttsReverseAllItem) {
             currentDocument.playReverseContents();
             textArea.setText(currentDocument.getText());
-            if (instance.isReversed()) instance.setReversed(false);
-            else instance.setReversed(true);
+            instance.setReversed(!instance.isReversed());
         }
         currentDocument.playContents();
     }
